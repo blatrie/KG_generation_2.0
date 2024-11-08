@@ -314,7 +314,7 @@ def store_kb(kb):
             if head != "" and tail != "" and relation_type != "" and head != tail and head != relation_type and tail != relation_type :
                 # get all node's name where node's head_type is the same as the head_type of the current head node
                 query_head = f"MATCH (n) WHERE n.head_type = '{head_type}' RETURN n.name"
-                query_tail = f"MATCH (n) WHERE n.head_type = '{head_type}' RETURN n.name"
+                query_tail = f"MATCH (n) WHERE n.head_type = '{head_type}' RETURN n.name"    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 
                 with client.session() as session:
                     try :

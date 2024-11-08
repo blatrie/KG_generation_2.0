@@ -1,2 +1,5 @@
 my_env/
 src/pipeline/__pycache__
+tst/pdf_files/
+.DS_Store
+tst/.DS_Store
