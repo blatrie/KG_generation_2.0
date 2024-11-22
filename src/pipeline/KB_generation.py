@@ -5,6 +5,7 @@ import re
 from merge_RDF import similarity_score
 from params import tokenizer, rdf_model, PATH_TO_RDF_FILES, ACTIVATE_SIMILARITY, DEVICE
 from all_mini import compare_with_all_mini
+from semantic_segmentation import *
 import time
 
 # knowledge base class for meta data collection
@@ -61,33 +62,50 @@ def extract_relations_from_model_output(text):
 
 
 # extract relations for each span and put them together in a knowledge base
-def get_kb(text, span_length=128, verbose=False, kb=KB(), pdf_name=""):
-    # tokenize whole text
-    inputs = tokenizer([text], max_length=256, padding=True, truncation=True,  return_tensors = 'pt')
+def get_kb(text, segmentation="syntactic", span_length=128, max_length=256, verbose=False, kb=KB(), pdf_name="", threshold=0.5):
 
-    # compute span boundaries
-    num_tokens = len(inputs["input_ids"][0])
-    if verbose:
-        print(f"Input has {num_tokens} tokens")
-    num_spans = math.ceil(num_tokens / span_length)
-    if verbose:
-        print(f"Input has {num_spans} spans")
-    overlap = math.ceil((num_spans * span_length - num_tokens) /
-                        max(num_spans - 1, 1))
     spans_boundaries = []
-    start = 0
-    for i in range(num_spans):
-        spans_boundaries.append([start + span_length * i,
-                                 start + span_length * (i + 1)])
-        start -= overlap
-    if verbose:
-        print(f"Span boundaries are {spans_boundaries}")
+    tensor_ids = []
+    tensor_masks = []
+    if segmentation == "syntactic":
+        # tokenize whole text
+        inputs = tokenizer([text], max_length=max_length, padding=True, truncation=True,  return_tensors = 'pt')
 
-    # transform input with spans
-    tensor_ids = [inputs["input_ids"][0][boundary[0]:boundary[1]]
-                  for boundary in spans_boundaries]
-    tensor_masks = [inputs["attention_mask"][0][boundary[0]:boundary[1]]
+        # compute span boundaries
+        num_tokens = len(inputs["input_ids"][0])
+        if verbose:
+            print(f"Input has {num_tokens} tokens")
+        num_spans = math.ceil(num_tokens / span_length)
+        if verbose:
+            print(f"Input has {num_spans} spans")
+        overlap = math.ceil((num_spans * span_length - num_tokens) /
+                            max(num_spans - 1, 1))
+
+        start = 0
+        for i in range(num_spans):
+            spans_boundaries.append([start + span_length * i,
+                                    start + span_length * (i + 1)])
+            start -= overlap
+        if verbose:
+            print(f"Span boundaries are {spans_boundaries}")
+
+        # transform input with spans
+        tensor_ids = [inputs["input_ids"][0][boundary[0]:boundary[1]]
                     for boundary in spans_boundaries]
+        tensor_masks = [inputs["attention_mask"][0][boundary[0]:boundary[1]]
+                        for boundary in spans_boundaries]
+        
+    elif segmentation == "semantic":
+        # Ségmentation sémantique
+        segments = segment_text(text, threshold=threshold)
+        if verbose:
+            print(f"Semantic segmentation produced {len(segments)} segments")
+        
+        for segment in segments:
+            segment_inputs = tokenizer([segment], max_length=max_length, padding="max_length", truncation=True, return_tensors='pt')
+            tensor_ids.append(segment_inputs["input_ids"][0])
+            tensor_masks.append(segment_inputs["attention_mask"][0])
+            spans_boundaries.append([0, len(segment)])  # Boundaries are conceptual for semantic segments
 
     inputs = {
         "input_ids": torch.stack(tensor_ids).to(DEVICE),
