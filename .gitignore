@@ -1,5 +1,8 @@
 my_env/
 src/pipeline/__pycache__
 tst/pdf_files/
+tst/html_files/
+tst/xml_files/
 .DS_Store
 tst/.DS_Store
+tst/output*
