@@ -1,0 +1,10 @@
+1er métrique : TF_IDF 
+Principe : 
+- On récupère les N mots les plus importants du texte initial (N > nombre de sommets du graphe)
+- On lemmatise tous ces mots
+- On lemmatise tous les sommets du graphe si pas déjà fait
+- On regarde le pourcentage de sommets du graphe qui sont dans l'ensemble des N mots
+- On regarde le pourcentage avec plus ou moins de mots importants (100% pour 50 mots imoortants est plus impressionnant que 100% pour 30 mots importants)
+
+
+2e métrique : 
