@@ -29,6 +29,10 @@ print("")
 
 text = "Jannik Sinner is a rising star in professional tennis, known for his exceptional talent, composure, and relentless work ethic. Born on August 16, 2001, in San Candido, Italy, Sinner has quickly climbed the ATP rankings, earning a reputation as one of the sport's most promising young players. His powerful baseline game, combined with remarkable agility and precision, makes him a formidable opponent on any surface. A former skier, Sinner’s athletic background contributes to his strong footwork and mental toughness on the court. With several ATP titles already under his belt, he continues to impress fans and critics alike, embodying the future of tennis with his dedication and skill."
 
+print()
+print(text)
+print()
+
 start_time = time.time()
 nlp = spacy.load("en_core_web_sm") 
 doc = nlp(text)
