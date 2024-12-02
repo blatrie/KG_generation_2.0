@@ -6,3 +6,4 @@ tst/xml_files/
 .DS_Store
 tst/.DS_Store
 tst/output*
+tst/results

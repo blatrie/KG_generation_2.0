@@ -51,13 +51,16 @@ dataset = Dataset.from_dict({
 dataset = dataset.map(preprocess_data, remove_columns=['triplets'])
 
 # Diviser le dataset en train/test
-train_dataset = dataset.train_test_split(test_size=0.2)['train']
-test_dataset = dataset.train_test_split(test_size=0.2)['test']
+split_datasets = dataset.train_test_split(test_size=0.2)
+
+# Extraire les datasets d'entraînement et de test
+train_dataset = split_datasets['train']
+test_dataset = split_datasets['test']
 
 # Spécifier les arguments d'entraînement
 training_args = TrainingArguments(
     output_dir='./results',
-    num_train_epochs=3,
+    num_train_epochs=2,
     per_device_train_batch_size=1,
     per_device_eval_batch_size=1,
     warmup_steps=500,
