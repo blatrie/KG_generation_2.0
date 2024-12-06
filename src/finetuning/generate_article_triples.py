@@ -66,12 +66,16 @@ def process_all_pdfs(directory, output_json):
             segments = segment_text(text, threshold=0.5)
 
             for segment in segments:
-                segment_translated = detect_and_translate(segment)
-                triples = extract_triplets(segment_translated)
-                all_results.append({
-                    "text": segment_translated,
-                    "triplets": triples
-                })
+                try:
+                    segment_translated = detect_and_translate(segment)
+                    triples = extract_triplets(segment_translated)
+                    all_results.append({
+                        "text": segment_translated,
+                        "triplets": triples
+                    })
+
+                except:
+                    print("pass")
 
     # Écriture dans le fichier JSON
     with open(output_json, 'w', encoding='utf-8') as f:
@@ -82,8 +86,8 @@ def process_all_pdfs(directory, output_json):
 if __name__ == '__main__':
     output_json_file = "data/mrebel_training_data.json"
 
-    # directory = "data/articles"
-    # process_all_pdfs(directory, output_json_file)
+    directory = "data/articles"
+    process_all_pdfs(directory, output_json_file)
 
     
-    extract_pdf_triples("data/articles/01-Petit-181-216.pdf", output_json_file)
+    #extract_pdf_triples("data/articles/01-Petit-181-216.pdf", output_json_file)
