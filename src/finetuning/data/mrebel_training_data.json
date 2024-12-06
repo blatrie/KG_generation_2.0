@@ -1,0 +1,825 @@
+[
+    {
+        "text": "Theory of emotions and economic analysis:\na review1\nEmmanuel Petit*\nSince Elster’s seminal review [1998], an abundant literature has revealed the growing interest of economists in the question of emotions. The introduction of emotion into economic analysis has been carried out essentially from a psychological and neurological conception of emotion. Developing a richer and more complete economy of emotions makes it necessary to also draw on other approaches to emotion, notably from sociology, anthropology, history and philosophy. The aim of this article is to contribute to enriching the work of economists in this field by proposing a multidisciplinary state of the art that synthesizes the knowledge derived from the theory of emotions. The first step is to identify the major stages in the construction of this theory and to extract the essential properties of emotions. The aim is then to illustrate how this knowledge has been mobilized in economic analysis, taking into account the diversity of approaches characteristic of the discipline.\nTheory of emotions – Behavioral economics – Economic sociology – Insti-\ntutions – Fear\nEmotion Theory and Economic Analysis: A Review\nSince Elster’s seminal review [1998], an abundant literature has revealed the growing interest of economists in the question of emotions. The introduction of emotion into economic analysis has been based essentially on a psychological and neurological conception of emotion. Developing a richer and more complete economics of emotions makes it necessary to also draw on other approaches to emotion from sociology, anthropology, history and philosophy. The objective of this article is to contribute to enrich the work of economists in this field by proposing a multidisciplinary state of the art of the knowledge derived from the theory of emotions.",
+        "triplets": [
+            {
+                "head": "Elster",
+                "head_type": "person",
+                "type": "published",
+                "tail": "seminal review",
+                "tail_type": "event"
+            },
+            {
+                "head": "economists",
+                "head_type": "organisation",
+                "type": "showed interest in",
+                "tail": "emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "economic analysis",
+                "head_type": "concept",
+                "type": "draws on",
+                "tail": "psychological and neurological conception of emotion",
+                "tail_type": "concept"
+            },
+            {
+                "head": "economic analysis",
+                "head_type": "concept",
+                "type": "needs",
+                "tail": "other approaches to emotion",
+                "tail_type": "concept"
+            },
+            {
+                "head": "theory of emotions",
+                "head_type": "concept",
+                "type": "synthesizes",
+                "tail": "knowledge from sociology, anthropology, history and philosophy",
+                "tail_type": "concept"
+            },
+            {
+                "head": "economic analysis",
+                "head_type": "concept",
+                "type": "mobilizes",
+                "tail": "knowledge from theory of emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Emmanuel Petit",
+                "head_type": "person",
+                "type": "wrote",
+                "tail": "article on theory of emotions and economic analysis",
+                "tail_type": "event"
+            }
+        ]
+    },
+    {
+        "text": "First, we identify the mainstages of construction of this theory and we highlight the essential properties of emo-tions.",
+        "triplets": [
+            {
+                "head": "construction of this theory",
+                "head_type": "event",
+                "type": "identify",
+                "tail": "mainstages",
+                "tail_type": "concept"
+            },
+            {
+                "head": "emo-tions",
+                "head_type": "concept",
+                "type": "have",
+                "tail": "essential properties",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "Secondly, we show how this knowledge has been used in economic analysis,taking into account the diversity of approaches characteristic of the discipline.\nEmotion theory – Behavioural Economics – Economic sociology – Institutions – Fear\nClassiﬁcation JEL: C70, C90, A12, Z13\n1.",
+        "triplets": [
+            {
+                "head": "Emotion theory",
+                "head_type": "concept",
+                "type": "is related to",
+                "tail": "Behavioural Economics",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Behavioural Economics",
+                "head_type": "concept",
+                "type": "is related to",
+                "tail": "Economic sociology",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Economic sociology",
+                "head_type": "concept",
+                "type": "is related to",
+                "tail": "Institutions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Institutions",
+                "head_type": "concept",
+                "type": "is related to",
+                "tail": "Fear",
+                "tail_type": "concept"
+            },
+            {
+                "head": "C70",
+                "head_type": "classification",
+                "type": "classifies",
+                "tail": "Economic analysis",
+                "tail_type": "concept"
+            },
+            {
+                "head": "C90",
+                "head_type": "classification",
+                "type": "classifies",
+                "tail": "Economic analysis",
+                "tail_type": "concept"
+            },
+            {
+                "head": "A12",
+                "head_type": "classification",
+                "type": "classifies",
+                "tail": "Economic analysis",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Z13",
+                "head_type": "classification",
+                "type": "classifies",
+                "tail": "Economic analysis",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "I would like to thank the two anonymous reviewers of the journal for their comments and suggestions, which have enabled me to explore and clarify many of the points raised in this text.",
+        "triplets": [
+            {
+                "head": "anonymous reviewers",
+                "head_type": "person",
+                "type": "received comments",
+                "tail": "journal",
+                "tail_type": "organisation"
+            },
+            {
+                "head": "author",
+                "head_type": "person",
+                "type": "responded to",
+                "tail": "anonymous reviewers",
+                "tail_type": "person"
+            },
+            {
+                "head": "author",
+                "head_type": "person",
+                "type": "clarified points",
+                "tail": "text",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "My deepest gratitude to Anna Tcherkassof for her careful proofreading of section 2 (“the science of emotions”).\n*Univ.",
+        "triplets": [
+            {
+                "head": "Anna Tcherkassof",
+                "head_type": "person",
+                "type": "performed",
+                "tail": "proofreading",
+                "tail_type": "concept"
+            },
+            {
+                "head": "section 2",
+                "head_type": "concept",
+                "type": "is about",
+                "tail": "the science of emotions",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "Bordeaux, CNRS, BSE, UMR 6060, F-33600 Pessac, France.",
+        "triplets": [
+            {
+                "head": "Bordeaux",
+                "head_type": "place",
+                "type": "is located in",
+                "tail": "France",
+                "tail_type": "place"
+            },
+            {
+                "head": "UMR 6060",
+                "head_type": "organisation",
+                "type": "is located in",
+                "tail": "Pessac",
+                "tail_type": "place"
+            },
+            {
+                "head": "CNRS",
+                "head_type": "organisation",
+                "type": "is affiliated with",
+                "tail": "UMR 6060",
+                "tail_type": "organisation"
+            },
+            {
+                "head": "BSE",
+                "head_type": "organisation",
+                "type": "is affiliated with",
+                "tail": "UMR 6060",
+                "tail_type": "organisation"
+            }
+        ]
+    },
+    {
+        "text": "Email:\nemmanuel.petit@u-bordeaux.fr ; website: https://gretha.cnrs.fr/emmanuel-petit/\nBILAN/ESSAI\nREP 132 (2) March-April 20221.",
+        "triplets": [
+            {
+                "head": "Emmanuel Petit",
+                "head_type": "person",
+                "type": "has email",
+                "tail": "emmanuel.petit@u-bordeaux.fr",
+                "tail_type": "technology"
+            },
+            {
+                "head": "Emmanuel Petit",
+                "head_type": "person",
+                "type": "has website",
+                "tail": "https://gretha.cnrs.fr/emmanuel-petit/",
+                "tail_type": "technology"
+            },
+            {
+                "head": "REP 132",
+                "head_type": "event",
+                "type": "published in",
+                "tail": "March-April 2022",
+                "tail_type": "date"
+            }
+        ]
+    },
+    {
+        "text": "Introduction\nSince Elster's seminal review [1998], an abundant literature has\nrevealed the growing interest of economists in the question of emotions (Loewenstein [2000], Camerer et al.",
+        "triplets": [
+            {
+                "head": "Elster",
+                "head_type": "person",
+                "type": "wrote",
+                "tail": "seminal review",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Elster",
+                "head_type": "person",
+                "type": "published",
+                "tail": "1998",
+                "tail_type": "date"
+            },
+            {
+                "head": "Loewenstein",
+                "head_type": "person",
+                "type": "published",
+                "tail": "2000",
+                "tail_type": "date"
+            },
+            {
+                "head": "Camerer et al.",
+                "head_type": "organisation",
+                "type": "published",
+                "tail": "literature",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "[2005], Rick et Loewenstein [2008],\nLerner et al.",
+        "triplets": [
+            {
+                "head": "Rick",
+                "head_type": "person",
+                "type": "co-authored with",
+                "tail": "Loewenstein",
+                "tail_type": "person"
+            },
+            {
+                "head": "Lerner",
+                "head_type": "person",
+                "type": "co-authored with",
+                "tail": "et al.",
+                "tail_type": "organisation"
+            }
+        ]
+    },
+    {
+        "text": "[2015], Petit [2009, 2015], Dunning et al.",
+        "triplets": [
+            {
+                "head": "Petit",
+                "head_type": "person",
+                "type": "published in",
+                "tail": "2009",
+                "tail_type": "date"
+            },
+            {
+                "head": "Petit",
+                "head_type": "person",
+                "type": "published in",
+                "tail": "2015",
+                "tail_type": "date"
+            },
+            {
+                "head": "Dunning et al.",
+                "head_type": "organisation",
+                "type": "published in",
+                "tail": "2015",
+                "tail_type": "date"
+            }
+        ]
+    },
+    {
+        "text": "[2017], Gomes [2017],\nWinter [2017], Wälde et Moors [2017], Tkach [2019], Rolls [2019]).",
+        "triplets": [
+            {
+                "head": "Gomes",
+                "head_type": "person",
+                "type": "published in",
+                "tail": "2017",
+                "tail_type": "date"
+            },
+            {
+                "head": "Winter",
+                "head_type": "person",
+                "type": "published in",
+                "tail": "2017",
+                "tail_type": "date"
+            },
+            {
+                "head": "Wälde et Moors",
+                "head_type": "organisation",
+                "type": "published in",
+                "tail": "2017",
+                "tail_type": "date"
+            },
+            {
+                "head": "Tkach",
+                "head_type": "person",
+                "type": "published in",
+                "tail": "2019",
+                "tail_type": "date"
+            },
+            {
+                "head": "Rolls",
+                "head_type": "person",
+                "type": "published in",
+                "tail": "2019",
+                "tail_type": "date"
+            }
+        ]
+    },
+    {
+        "text": "As in many academic disciplines, economists have accompanied what historians have called \"the emotional turn\" (Plamper [2010]), an extraordinary craze born in the mid-1990s for the study of emotions. In economics, emotions are today mainly mobilized and studied in an experimental framework and then introduced into behavioral models in order to improve existing models of human behavior. The \"economics of emotions\" (Petit [2015]) has made it possible to \"revisit\" the model of perfect rationality (Elster [1996], Kahneman [2012], Rolls [2019]), has introduced a plurality of social and/or moral motivations (Jourdheuil and Petit [2015]) and has led to new modalities of intervention by public authorities such as emotional paternalism (Schultz et al. [2007]). The introduction of emotion into economic analysis was carried out\nessentially from a psychological and neurological conception of emotion. As suggested by Elster [1998], this conception made it possible (i) to disturb emotion in categories that could be easily mobilized by economists, (ii) to give it a functional (multi-component) definition particularly adapted to the methodological individualism practiced in experimental and behavioral economics and above all (iii) to provide precise and effective instruments for measuring and inducing emotions. The theory of emotions that was gradually established during the 20th century, however, covers a much broader field of analysis than that taken into account by psychology and neuroscience. Other disciplines – such as sociology, philosophy, anthropology, history or literature – have also constructed an elaborate and fruitful theory of emotions. Recent work on the theory of emotions also shows that there is now a convergence between approaches that were once opposed and considered incompatible (biology vs. anthropology, psychology vs. sociology). Developing a richer and more complete “economy of emotions” makes it necessary to know and draw on the different approaches to emotion, without limiting ourselves to the sole conception of psychology and/or neurology. The aim of this review is therefore to contribute to enriching the work of economists in this field by proposing a multidisciplinary state of the art that synthesizes the knowledge derived from the theory of emotions. First, it is a question of identifying the main stages in the construction of this theory and extracting the essential properties of emotions (2). The aim then is to illustrate – as extensively as possible but without claiming to be exhaustive – how this knowledge has been used in economic analysis, taking into account the diversity of approaches characteristic of the discipline (3). We will conclude this review of the literature on the theory and economics of emotions by discussing and identifying the most fruitful and promising areas of research for economists (4).",
+        "triplets": [
+            {
+                "head": "Plamper",
+                "head_type": "person",
+                "type": "authored",
+                "tail": "the emotional turn",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Petit",
+                "head_type": "person",
+                "type": "coined",
+                "tail": "economics of emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Elster",
+                "head_type": "person",
+                "type": "introduced",
+                "tail": "model of perfect rationality",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Kahneman",
+                "head_type": "person",
+                "type": "introduced",
+                "tail": "model of perfect rationality",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Rolls",
+                "head_type": "person",
+                "type": "introduced",
+                "tail": "model of perfect rationality",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Schultz et al.",
+                "head_type": "person",
+                "type": "introduced",
+                "tail": "emotional paternalism",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Elster",
+                "head_type": "person",
+                "type": "suggested",
+                "tail": "psychological and neurological conception of emotion",
+                "tail_type": "concept"
+            },
+            {
+                "head": "economics of emotions",
+                "head_type": "concept",
+                "type": "leads to",
+                "tail": "new modalities of intervention by public authorities",
+                "tail_type": "event"
+            },
+            {
+                "head": "theory of emotions",
+                "head_type": "concept",
+                "type": "covers",
+                "tail": "broad field of analysis",
+                "tail_type": "concept"
+            },
+            {
+                "head": "sociology",
+                "head_type": "organisation",
+                "type": "constructed",
+                "tail": "elaborate and fruitful theory of emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "philosophy",
+                "head_type": "organisation",
+                "type": "constructed",
+                "tail": "elaborate and fruitful theory of emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "anthropology",
+                "head_type": "organisation",
+                "type": "constructed",
+                "tail": "elaborate and fruitful theory of emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "history",
+                "head_type": "organisation",
+                "type": "constructed",
+                "tail": "elaborate and fruitful theory of emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "literature",
+                "head_type": "organisation",
+                "type": "constructed",
+                "tail": "elaborate and fruitful theory of emotions",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "We will finally conclude briefly (5).\n2.",
+        "triplets": []
+    },
+    {
+        "text": "The science of emotions:\nexpression, behavior, and social construction\nIt is possible to juxtapose two major conceptions in contemporary scientific approaches to emotion23. First, there are the authors who consider that emotions correspond to an objective empirical reality that can be defined, analyzed, evaluated, and broken down. Schematically, the proponents of this first trend are more located in the life sciences, in the medical sciences, or in experimental sciences such as psychology or neuroscience. Within this first trend, there are, on the one hand, those who give primacy to the bodily, physiological, biological dimension of emotion (2.1) and, on the other hand, those who, by relativizing the scope of the body, reveal the importance of cognition and psychological processes (2.2). Other authors, on the contrary, argue that emotions should be considered rather as objects on which we can formulate a discourse without claiming an operational measurement.",
+        "triplets": [
+            {
+                "head": "life sciences",
+                "head_type": "organisation",
+                "type": "located in",
+                "tail": "proponents of the first trend",
+                "tail_type": "organisation"
+            },
+            {
+                "head": "medical sciences",
+                "head_type": "organisation",
+                "type": "located in",
+                "tail": "proponents of the first trend",
+                "tail_type": "organisation"
+            },
+            {
+                "head": "experimental sciences",
+                "head_type": "organisation",
+                "type": "located in",
+                "tail": "proponents of the first trend",
+                "tail_type": "organisation"
+            },
+            {
+                "head": "psychology",
+                "head_type": "organisation",
+                "type": "located in",
+                "tail": "proponents of the first trend",
+                "tail_type": "organisation"
+            },
+            {
+                "head": "neuroscience",
+                "head_type": "organisation",
+                "type": "located in",
+                "tail": "proponents of the first trend",
+                "tail_type": "organisation"
+            },
+            {
+                "head": "biological dimension of emotion",
+                "head_type": "concept",
+                "type": "given primacy to",
+                "tail": "some authors",
+                "tail_type": "person"
+            },
+            {
+                "head": "cognition and psychological processes",
+                "head_type": "concept",
+                "type": "revealed by",
+                "tail": "other authors",
+                "tail_type": "person"
+            }
+        ]
+    },
+    {
+        "text": "These authors share the idea that the human mind bases its capacity for knowledge on relationships\n2.",
+        "triplets": [
+            {
+                "head": "human mind",
+                "head_type": "concept",
+                "type": "bases its capacity",
+                "tail": "knowledge",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "This is naturally a schematic juxtaposition that allows the question of emotion to be approached with clarity and relative simplicity, especially for the uninitiated. However, the reader must keep in mind that the porosity, contiguity and overlap between the work of researchers belonging to different disciplines (neurology, sociology, social psychology, anthropology, philosophy, etc.) is much greater than what the following presentation of the theory of emotions suggests. Some works in particular are explicitly on the border between these disciplines (for example, overlapping neuroscience and history as an illustration (see in this regard the evocatively titled work by Smail [2007]).\n\n3.",
+        "triplets": [
+            {
+                "head": "Smail",
+                "head_type": "person",
+                "type": "authored",
+                "tail": "work",
+                "tail_type": "concept"
+            },
+            {
+                "head": "neuroscience",
+                "head_type": "concept",
+                "type": "overlaps with",
+                "tail": "history",
+                "tail_type": "concept"
+            },
+            {
+                "head": "researchers",
+                "head_type": "person",
+                "type": "belong to",
+                "tail": "disciplines",
+                "tail_type": "concept"
+            },
+            {
+                "head": "neurology",
+                "head_type": "concept",
+                "type": "is a",
+                "tail": "discipline",
+                "tail_type": "concept"
+            },
+            {
+                "head": "sociology",
+                "head_type": "concept",
+                "type": "is a",
+                "tail": "discipline",
+                "tail_type": "concept"
+            },
+            {
+                "head": "social psychology",
+                "head_type": "concept",
+                "type": "is a",
+                "tail": "discipline",
+                "tail_type": "concept"
+            },
+            {
+                "head": "anthropology",
+                "head_type": "concept",
+                "type": "is a",
+                "tail": "discipline",
+                "tail_type": "concept"
+            },
+            {
+                "head": "philosophy",
+                "head_type": "concept",
+                "type": "is a",
+                "tail": "discipline",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "In the following, we refer to the references and original editions of the texts or works of the authors cited.",
+        "triplets": [
+            {
+                "head": "authors cited",
+                "head_type": "person",
+                "type": "refer to",
+                "tail": "references",
+                "tail_type": "concept"
+            },
+            {
+                "head": "references",
+                "head_type": "concept",
+                "type": "of",
+                "tail": "original editions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "original editions",
+                "head_type": "concept",
+                "type": "of",
+                "tail": "texts or works",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "For extensive and recent disciplinary academic reviews on the theory of emotions, the reader may consult in particular Lewis et al. [2010] and Tcherkassof [2008] in psychology, Panksepp [2004] in neuroscience, Stets and Turner [2014] in sociology, Goldie [2009] in philosophy, Beatty [2019] in anthropology, Biess and Gross [2014] in philosophy of science, Hoggett and Thompson [2012] and Nussbaum [2013] in political science, Plantin [2011] in communication sciences.",
+        "triplets": [
+            {
+                "head": "Lewis et al.",
+                "head_type": "organisation",
+                "type": "published",
+                "tail": "2010",
+                "tail_type": "date"
+            },
+            {
+                "head": "Tcherkassof",
+                "head_type": "person",
+                "type": "published",
+                "tail": "2008",
+                "tail_type": "date"
+            },
+            {
+                "head": "Panksepp",
+                "head_type": "person",
+                "type": "published",
+                "tail": "2004",
+                "tail_type": "date"
+            },
+            {
+                "head": "Stets and Turner",
+                "head_type": "organisation",
+                "type": "published",
+                "tail": "2014",
+                "tail_type": "date"
+            },
+            {
+                "head": "Goldie",
+                "head_type": "person",
+                "type": "published",
+                "tail": "2009",
+                "tail_type": "date"
+            },
+            {
+                "head": "Beatty",
+                "head_type": "person",
+                "type": "published",
+                "tail": "2019",
+                "tail_type": "date"
+            },
+            {
+                "head": "Biess and Gross",
+                "head_type": "organisation",
+                "type": "published",
+                "tail": "2014",
+                "tail_type": "date"
+            },
+            {
+                "head": "Hoggett and Thompson",
+                "head_type": "organisation",
+                "type": "published",
+                "tail": "2012",
+                "tail_type": "date"
+            },
+            {
+                "head": "Nussbaum",
+                "head_type": "person",
+                "type": "published",
+                "tail": "2013",
+                "tail_type": "date"
+            },
+            {
+                "head": "Plantin",
+                "head_type": "person",
+                "type": "published",
+                "tail": "2011",
+                "tail_type": "date"
+            }
+        ]
+    },
+    {
+        "text": "The history of emotions has been remarkably documented by Corbin et al.",
+        "triplets": [
+            {
+                "head": "Corbin et al.",
+                "head_type": "organisation",
+                "type": "documented",
+                "tail": "history of emotions",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "[2016-2017].",
+        "triplets": [
+            {
+                "head": "2016",
+                "head_type": "date",
+                "type": "is related to",
+                "tail": "2017",
+                "tail_type": "date"
+            }
+        ]
+    },
+    {
+        "text": "For a historical introduction, see also Plamper [2015] as well as the articles by Boquet and Nagy [2011, 2016].",
+        "triplets": [
+            {
+                "head": "Plamper",
+                "head_type": "person",
+                "type": "published",
+                "tail": "2015",
+                "tail_type": "date"
+            },
+            {
+                "head": "Boquet",
+                "head_type": "person",
+                "type": "co-authored",
+                "tail": "Nagy",
+                "tail_type": "person"
+            },
+            {
+                "head": "Boquet",
+                "head_type": "person",
+                "type": "published",
+                "tail": "2011",
+                "tail_type": "date"
+            },
+            {
+                "head": "Boquet",
+                "head_type": "person",
+                "type": "published",
+                "tail": "2016",
+                "tail_type": "date"
+            }
+        ]
+    },
+    {
+        "text": "For a historical reading of the word “emotion”, refer to Dixon [2012]. The reader will also find a summary of the place of emotion in art in Bernardet al.",
+        "triplets": [
+            {
+                "head": "Dixon",
+                "head_type": "person",
+                "type": "writes",
+                "tail": "historical reading of the word emotion",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Bernard",
+                "head_type": "person",
+                "type": "writes",
+                "tail": "summary of the place of emotion in art",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "[2016], in architecture, in Thibault [2010], and around the heritage question, in Fabre [2013].",
+        "triplets": [
+            {
+                "head": "Thibault",
+                "head_type": "person",
+                "type": "published in",
+                "tail": "2010",
+                "tail_type": "date"
+            },
+            {
+                "head": "Fabre",
+                "head_type": "person",
+                "type": "published in",
+                "tail": "2013",
+                "tail_type": "date"
+            }
+        ]
+    },
+    {
+        "text": "On the place of emotions in the construction of scientific knowledge, refer to the very fine work of Waquet [2019]. Finally, for synthetic and enlightened dictionaries of the words of emotion and “social passions”, see respectively Smith [2019] and Origgi [2019]. Emmanuel Petit— ...",
+        "triplets": [
+            {
+                "head": "Waquet",
+                "head_type": "person",
+                "type": "created",
+                "tail": "work on emotions in scientific knowledge",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Smith",
+                "head_type": "person",
+                "type": "created",
+                "tail": "synthetic dictionary of words of emotion",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Origgi",
+                "head_type": "person",
+                "type": "created",
+                "tail": "enlightened dictionary of social passions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Emmanuel Petit",
+                "head_type": "person",
+                "type": "related to",
+                "tail": "construction of scientific knowledge",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "The supporters of this\nsecond",
+        "triplets": []
+    }
+]

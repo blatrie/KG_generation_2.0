@@ -88,6 +88,7 @@ def extract_triplets(text):
         model="llama3-70b-8192",
     )
     # Convertir la réponse en un objet JSON
+    #print(chat_completion.choices[0].message.content)
     return json.loads(chat_completion.choices[0].message.content)
 
 
