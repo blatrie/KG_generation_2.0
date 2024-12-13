@@ -1,0 +1,11 @@
+- Charger le modèle finetuné d'All-mini dans le répertoire "models"
+- Filtrer les triplets pour le finetuning
+- Finetuner MRebel
+- Regarder pour améliorer le merge au moment de l'ajout dans la base de données 
+- Voir pour utiliser cluster HPC pour Llama
+- Faire diapo
+- Amélioration de la métrique TF-IDF, en la combinant avec d'autres extracteurs de mots clefs
+- Regarder l'utilisation de CodeCarbon pour l'analyse environnementale (2 slides dans le diapo)
+- Avoir une image de chaque graphe obtenu pour comparaison visuelle des différentes implémentations
+- Faire documentation de tout ce qui a été fait 
+- faire fichiers de résultats pour comparer l'efficacité des paramètres
