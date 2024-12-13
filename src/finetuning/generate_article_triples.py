@@ -87,7 +87,6 @@ if __name__ == '__main__':
     output_json_file = "data/mrebel_training_data.json"
 
     directory = "data/articles"
-    process_all_pdfs(directory, output_json_file)
+    #process_all_pdfs(directory, output_json_file)
 
-    
-    #extract_pdf_triples("data/articles/01-Petit-181-216.pdf", output_json_file)
+    extract_pdf_triples("data/articles/01-Petit-181-216.pdf", output_json_file)
