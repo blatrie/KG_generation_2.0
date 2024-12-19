@@ -7,3 +7,4 @@ tst/xml_files/
 tst/.DS_Store
 tst/output*
 tst/results
+pipeline/__pycache__

@@ -22,24 +22,26 @@ def extract_pdf_triples(file, output_json):
     for segment in segments:
         # Traduction si nécessaire
         segment_translated = detect_and_translate(segment)
-        
-        # Extraction des triplets
-        triples = extract_triplets(segment_translated)
+        try:
+            # Extraction des triplets
+            triples = extract_triplets(segment_translated)
 
-        # Formatage de l'entrée pour le fichier JSON
-        results.append({
-            "text": segment_translated,
-            "triplets": [
-                {
-                    "head": triple['head'],
-                    "head_type": triple['head_type'],
-                    "type": triple['type'],
-                    "tail": triple['tail'],
-                    "tail_type": triple['tail_type']
-                }
-                for triple in triples
-            ]
-        })
+            # Formatage de l'entrée pour le fichier JSON
+            results.append({
+                "text": segment_translated,
+                "triplets": [
+                    {
+                        "head": triple['head'],
+                        "head_type": triple['head_type'],
+                        "type": triple['type'],
+                        "tail": triple['tail'],
+                        "tail_type": triple['tail_type']
+                    }
+                    for triple in triples
+                ]
+            })
+        except:
+                    print("pass")
 
     # Sauvegarde des résultats dans un fichier JSON
     try:
@@ -50,11 +52,18 @@ def extract_pdf_triples(file, output_json):
         print(f"Erreur lors de l'écriture dans le fichier JSON : {e}")
 
 
+import os
+import json
+
 def process_all_pdfs(directory, output_json):
     """
     Parcourt tous les fichiers PDF dans un répertoire et ajoute leurs triplets dans un fichier JSON.
+    Les triplets sont ajoutés au fur et à mesure dans le fichier JSON.
     """
-    all_results = []
+    # Vérifier si le fichier existe déjà, sinon le créer avec une liste vide
+    if not os.path.exists(output_json):
+        with open(output_json, 'w', encoding='utf-8') as f:
+            json.dump([], f, indent=4, ensure_ascii=False)
 
     for file_name in os.listdir(directory):
         if file_name.endswith('.pdf'):
@@ -69,25 +78,30 @@ def process_all_pdfs(directory, output_json):
                 try:
                     segment_translated = detect_and_translate(segment)
                     triples = extract_triplets(segment_translated)
-                    all_results.append({
+                    
+                    # Charger le contenu actuel du fichier JSON
+                    with open(output_json, 'r', encoding='utf-8') as f:
+                        current_data = json.load(f)
+
+                    # Ajouter les nouveaux résultats
+                    current_data.append({
                         "text": segment_translated,
                         "triplets": triples
                     })
 
-                except:
-                    print("pass")
+                    # Réécrire dans le fichier JSON
+                    with open(output_json, 'w', encoding='utf-8') as f:
+                        json.dump(current_data, f, indent=4, ensure_ascii=False)
 
-    # Écriture dans le fichier JSON
-    with open(output_json, 'w', encoding='utf-8') as f:
-        json.dump(all_results, f, indent=4, ensure_ascii=False)
+                except Exception as e:
+                    print(f"Erreur lors du traitement d'un segment : {e}")
+                    continue
+
     print(f"Tous les triplets ont été sauvegardés dans : {output_json}")
 
 
 if __name__ == '__main__':
-    output_json_file = "data/mrebel_training_data.json"
-
+    output_json_file = "data/all_mrebel_training_data.json"
     directory = "data/articles"
     process_all_pdfs(directory, output_json_file)
-
-    
-    #extract_pdf_triples("data/articles/01-Petit-181-216.pdf", output_json_file)
+    # extract_pdf_triples("data/articles/01-Petit-181-216.pdf", output_json_file)
