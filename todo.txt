@@ -9,3 +9,4 @@
 - Avoir une image de chaque graphe obtenu pour comparaison visuelle des différentes implémentations - ALL
 - Faire documentation de tout ce qui a été fait - ALL
 - faire fichiers de résultats pour comparer l'efficacité des paramètres - Benji
+- modèle pour savoir si un texte est cohérent
