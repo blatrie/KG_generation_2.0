@@ -8,3 +8,4 @@ tst/.DS_Store
 tst/output*
 tst/results
 pipeline/__pycache__
+src/models/
