@@ -1,0 +1,69 @@
+[
+    {
+        "text": "The GDP of France is 2.78 trillion USD. Its population is approximately 67 million, and Paris is its capital city.",
+        "triplets": [
+            {"head": "France", "head_type": "country", "type": "hasGDP", "tail": "2.78 trillion USD", "tail_type": "currency"},
+            {"head": "France", "head_type": "country", "type": "hasPopulation", "tail": "67 million", "tail_type": "number"},
+            {"head": "France", "head_type": "country", "type": "hasCapital", "tail": "Paris", "tail_type": "city"}
+        ]
+    },
+    {
+        "text": "Germany has a GDP of 3.86 trillion USD. Its automotive industry is a key sector, and the capital city is Berlin.",
+        "triplets": [
+            {"head": "Germany", "head_type": "country", "type": "hasGDP", "tail": "3.86 trillion USD", "tail_type": "currency"},
+            {"head": "Germany", "head_type": "country", "type": "hasKeySector", "tail": "automotive industry", "tail_type": "sector"},
+            {"head": "Germany", "head_type": "country", "type": "hasCapital", "tail": "Berlin", "tail_type": "city"}
+        ]
+    },
+    {
+        "text": "The United States has a GDP of 21.43 trillion USD and is the largest economy in the world. It has a population of 331 million, and its currency is the US Dollar.",
+        "triplets": [
+            {"head": "United States", "head_type": "country", "type": "hasGDP", "tail": "21.43 trillion USD", "tail_type": "currency"},
+            {"head": "United States", "head_type": "country", "type": "isRankedAs", "tail": "largest economy in the world", "tail_type": "ranking"},
+            {"head": "United States", "head_type": "country", "type": "hasPopulation", "tail": "331 million", "tail_type": "number"},
+            {"head": "United States", "head_type": "country", "type": "usesCurrency", "tail": "US Dollar", "tail_type": "currency"}
+        ]
+    },
+    {
+        "text": "China's GDP is 14.34 trillion USD, and it is home to over 1.4 billion people. Shanghai, its largest city, is a major financial hub.",
+        "triplets": [
+            {"head": "China", "head_type": "country", "type": "hasGDP", "tail": "14.34 trillion USD", "tail_type": "currency"},
+            {"head": "China", "head_type": "country", "type": "hasPopulation", "tail": "1.4 billion", "tail_type": "number"},
+            {"head": "Shanghai", "head_type": "city", "type": "isPartOf", "tail": "China", "tail_type": "country"},
+            {"head": "Shanghai", "head_type": "city", "type": "isKnownFor", "tail": "major financial hub", "tail_type": "concept"}
+        ]
+    },
+    {
+        "text": "Japan's GDP is 5.08 trillion USD, making it the third-largest economy globally. Its technological innovation is world-renowned, and Tokyo is its bustling capital.",
+        "triplets": [
+            {"head": "Japan", "head_type": "country", "type": "hasGDP", "tail": "5.08 trillion USD", "tail_type": "currency"},
+            {"head": "Japan", "head_type": "country", "type": "isRankedAs", "tail": "third-largest economy globally", "tail_type": "ranking"},
+            {"head": "Japan", "head_type": "country", "type": "isKnownFor", "tail": "technological innovation", "tail_type": "concept"},
+            {"head": "Tokyo", "head_type": "city", "type": "isPartOf", "tail": "Japan", "tail_type": "country"}
+        ]
+    },
+    {
+        "text": "The European Union has a GDP of 17.1 trillion USD. It represents 27 member states, and its currency is the Euro.",
+        "triplets": [
+            {"head": "European Union", "head_type": "organization", "type": "hasGDP", "tail": "17.1 trillion USD", "tail_type": "currency"},
+            {"head": "European Union", "head_type": "organization", "type": "hasMemberCount", "tail": "27", "tail_type": "number"},
+            {"head": "European Union", "head_type": "organization", "type": "usesCurrency", "tail": "Euro", "tail_type": "currency"}
+        ]
+    },
+    {
+        "text": "India's GDP stands at 2.87 trillion USD. The country has a population of over 1.4 billion people, and New Delhi serves as its capital city.",
+        "triplets": [
+            {"head": "India", "head_type": "country", "type": "hasGDP", "tail": "2.87 trillion USD", "tail_type": "currency"},
+            {"head": "India", "head_type": "country", "type": "hasPopulation", "tail": "1.4 billion", "tail_type": "number"},
+            {"head": "India", "head_type": "country", "type": "hasCapital", "tail": "New Delhi", "tail_type": "city"}
+        ]
+    },
+    {
+        "text": "Brazil has a GDP of 1.84 trillion USD. It is the largest economy in South America, and its currency is the Brazilian Real.",
+        "triplets": [
+            {"head": "Brazil", "head_type": "country", "type": "hasGDP", "tail": "1.84 trillion USD", "tail_type": "currency"},
+            {"head": "Brazil", "head_type": "country", "type": "isRankedAs", "tail": "largest economy in South America", "tail_type": "ranking"},
+            {"head": "Brazil", "head_type": "country", "type": "usesCurrency", "tail": "Brazilian Real", "tail_type": "currency"}
+        ]
+    }
+]

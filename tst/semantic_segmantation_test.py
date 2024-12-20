@@ -20,7 +20,7 @@ def get_sentence_embedding(sentence):
     return embeddings[0]
 
 # Fonction pour segmenter le texte
-def segment_text(text, threshold=0.75):
+def segment_text(text, threshold=0.5):
     sentences = split_into_sentences(text)
     embeddings = [get_sentence_embedding(sentence) for sentence in sentences]
     
@@ -43,11 +43,13 @@ def segment_text(text, threshold=0.75):
 
 # Exemple d'utilisation
 texte = """
-La segmentation sémantique est un processus de division du texte en parties cohérentes. 
-Elle peut être utilisée pour améliorer la compréhension automatique du contenu. 
-Les modèles modernes comme BERT permettent d'obtenir des résultats plus précis. 
-Cependant, cela nécessite un traitement avancé et une bonne compréhension du modèle. 
-Ce processus est utile pour des applications telles que le résumé automatique et la génération de réponses.
+Jannik Sinner is rapidly establishing himself as one of the brightest stars in professional tennis, captivating the attention of fans and experts alike with his exceptional skill, composure, and tireless dedication to the sport. Born on August 16, 2001, in the picturesque town of San Candido in northern Italy, Sinner grew up in a region more renowned for winter sports than tennis. His early years were spent honing his athletic prowess as a competitive skier, a background that has profoundly shaped his physical and mental attributes on the tennis court. The balance, agility, and precise coordination demanded by skiing are evident in Sinner's movement, allowing him to glide across the court with an ease that belies the intensity of his game.
+
+Despite entering the tennis scene relatively late compared to some of his peers, Sinner’s meteoric rise has been nothing short of remarkable. His swift ascent through the ATP rankings has been fueled by a potent combination of natural talent and an unwavering commitment to improvement. Known for his powerful and consistent baseline game, he possesses a formidable forehand and a backhand that can penetrate even the toughest defenses. His ability to adapt his strategy and maintain mental clarity under pressure makes him a challenging opponent for seasoned veterans and fellow rising stars alike.
+
+Sinner's impressive achievements include several ATP titles, which serve as a testament to his growing dominance in the sport. His victories are not just a reflection of his technical skills but also his exceptional work ethic and maturity, traits that are rare for someone so young. Whether competing on hard courts, clay, or grass, Sinner’s versatility ensures that he remains a threat on any surface.
+
+Off the court, Jannik Sinner is known for his humble demeanor and focus on continuous growth, traits that have endeared him to fans worldwide. Many see him as a beacon of the future for tennis, carrying the torch for a new generation of players. As he continues to develop his game and challenge the sport’s elite, Sinner’s journey promises to be one of perseverance, talent, and a relentless pursuit of greatness.
 """
 
 segments = segment_text(texte)
