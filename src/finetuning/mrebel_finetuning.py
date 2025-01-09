@@ -81,3 +81,12 @@ trainer = Trainer(
 
 # Lancer l'entraînement
 trainer.train()
+
+# Sauvegarder le modèle fine-tuné
+model_dir = "./models/fine_tuned_mrebel"
+model.save_pretrained(model_dir)
+
+# Sauvegarder le tokenizer
+tokenizer.save_pretrained(model_dir)
+
+print(f"Modèle sauvegardé dans le répertoire : {model_dir}")
