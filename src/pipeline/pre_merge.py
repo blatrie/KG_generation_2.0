@@ -2,21 +2,6 @@ import torch
 from transformers import AutoModel
 
 def merge_with_finetuned_all_mini(triples):
-    # Charger le modèle complet
-    model_path = "../datasets/finetuned_all_mini.pth"
-    model = torch.load(model_path)
-
-    # Si un GPU est disponible
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model.to(device)
-
-    print("Modèle finetuné chargé avec succès.")
-
-    import torch
-from transformers import AutoTokenizer
-from torch.nn.functional import sigmoid
-
-def merge_with_finetuned_all_mini(triples):
     """
     Fusionne les triplets redondants en utilisant un modèle fine-tuné pour détecter les similarités.
     

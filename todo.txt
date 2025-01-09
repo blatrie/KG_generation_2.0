@@ -10,3 +10,4 @@
 - Faire documentation de tout ce qui a été fait - ALL
 - faire fichiers de résultats pour comparer l'efficacité des paramètres - Benji
 - modèle pour savoir si un texte est cohérent
+- regarder Spacy pour extraire text
