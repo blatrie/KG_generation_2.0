@@ -332,7 +332,7 @@ def store_kb(kb):
             if head != "" and tail != "" and relation_type != "" and head != tail and head != relation_type and tail != relation_type :
                 # get all node's name where node's head_type is the same as the head_type of the current head node
                 query_head = f"MATCH (n) WHERE n.head_type = '{head_type}' RETURN n.name"
-                query_tail = f"MATCH (n) WHERE n.head_type = '{head_type}' RETURN n.name"    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                query_tail = f"MATCH (n) WHERE n.tail_type = '{tail_type}' RETURN n.name"    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 
                 with client.session() as session:
                     try :
@@ -369,7 +369,7 @@ def store_kb(kb):
                         else :
                             score_tail = compare_with_all_mini(tail, node)
                             # print("We need to use all_mini, score is : ", score_head)
-                        
+
                         if score_head > best_score_head :
                             best_score_head = score_head
                             best_node_head = node
@@ -444,7 +444,6 @@ def store_kb(kb):
                         print("c    ", query, "already in the database")
             else :
                 print("something is wrong with the relation : ", head, relation_type, tail)
-            
         
         print("c    stored.")
     return True, partial_merge_time

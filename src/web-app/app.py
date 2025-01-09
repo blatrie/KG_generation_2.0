@@ -925,6 +925,32 @@ def get_entities():
         )
         return jsonify(entities)
 
+@app.route('/clear_graph', methods=['POST'])
+def clear_graph():
+    """
+    Clears all nodes and relationships in the Memgraph database.
+
+    Returns:
+        str: A success or failure message.
+    """
+    # Define correct URI and AUTH arguments (no AUTH by default)
+    URI = "bolt://localhost:7687"
+    AUTH = ("", "")
+
+    try:
+        with GraphDatabase.driver(URI, auth=AUTH) as client:
+            # Verify connectivity
+            client.verify_connectivity()
+
+            # Execute a query to delete all nodes and relationships
+            query = "MATCH (n) DETACH DELETE n;"
+            client.execute_query(query, database_="memgraph")
+
+        return "Graph cleared successfully.", 200
+    except Exception as e:
+        print(f"Error clearing the graph: {e}")
+        return "Failed to clear the graph.", 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
