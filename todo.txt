@@ -5,9 +5,14 @@
 - Voir pour utiliser cluster HPC pour Llama - Abde
 - Faire diapo - ALL
 - Amélioration de la métrique TF-IDF, en la combinant avec d'autres extracteurs de mots clefs (présents dans le fichier tst/delete_redundancies_test.py) - Steve
+- Regarder autres métriques
 - Regarder l'utilisation de CodeCarbon pour l'analyse environnementale (2 slides dans le diapo) - Steve
 - Avoir une image de chaque graphe obtenu pour comparaison visuelle des différentes implémentations - ALL
 - Faire documentation de tout ce qui a été fait - ALL
 - faire fichiers de résultats pour comparer l'efficacité des paramètres - Benji
 - modèle pour savoir si un texte est cohérent
 - regarder Spacy pour extraire text
+- Harmoniser ensemble des changements pour obtenir un graphe, effectuer comparaison entre graphe année dernière et cette année
+- stocker ligne du fichier dans relation
+- Pour tester merge par rapport à l'année dernière, générer graphe en utilisant 2 fois le même article, et faire une analyse visuelle + regarder métriques
+- tester génération de graphe avec gpu
