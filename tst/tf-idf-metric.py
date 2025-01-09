@@ -3,8 +3,10 @@ import numpy as np
 import nltk
 from nltk.stem import WordNetLemmatizer
 import sys
-sys.path.insert(0, '../src/pipeline/')
-from KB_generation import get_kb, KB
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+import json
+model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 
 nltk.download('wordnet')
 
@@ -30,8 +32,8 @@ These are not things you go out and buy at Home Depot on the weekend, he said. T
 ]
 
 # Initialiser le vectorizer avec suppression des stop words en anglais
-vectorizer = TfidfVectorizer(stop_words='english', lowercase=True, ngram_range=(1, 2))
-# vectorizer = TfidfVectorizer(stop_words='english', min_df=0.5, ngram_range=(1, 2)) # min_df = 0.1 : les mots qui apparaissent dans moins de 10% des documents seront ignorés. 
+# vectorizer = TfidfVectorizer(stop_words='english', lowercase=True, ngram_range=(1, 2))
+vectorizer = TfidfVectorizer(stop_words='english', min_df=0.1, ngram_range=(1, 2)) # min_df = 0.1 : les mots qui apparaissent dans moins de 10% des documents seront ignorés. 
 # vectorizer = TfidfVectorizer(stop_words='english', ngram_range=(1, 2))
 tfidf_matrix = vectorizer.fit_transform(documents)
 
@@ -71,34 +73,62 @@ Kent Smetters, the faculty director of the Penn Wharton Budget Model, which meas
 It’s not as big of an effect as you might think, he said. It’s not the same as if you were getting rid of all undocumented workers, and they’re going to fall far short of that, is my guess.The tariffs Mr. Trump put in effect in 2018 do not offer a good economic precedent for how such a large tariff on goods coming from China in particular might play out, Mr. Sharif said. The earlier rounds heavily affected imports like aluminum, steel and other economic inputs, rather than final products.
 These are not things you go out and buy at Home Depot on the weekend,” he said. The new ones, by contrast, would hit things like T-shirts and tennis shoes, so they could feed much more directly into consumer price inflation."""
 
-print(important_words)
+
 lemmatizer = WordNetLemmatizer()
 for i in range(len(important_words)):
     word = lemmatizer.lemmatize(important_words[i])
     important_words[i] = word
-
 print(important_words)
+
 print("")
 print("")
-myKB = KB()
-myKB = get_kb(text)[0]
+# myKB = KB()
+# myKB = get_kb(text)[0]
 # print(myKB.relations)
 
-nodes = []
-for rel in myKB.relations:
-    for node in [rel['head'], rel['tail']]:
-        word = lemmatizer.lemmatize(node)
-        if word not in nodes:
-            nodes.append(word)
+# nodes = []
+# for rel in myKB.relations:
+#     for node in [rel['head'], rel['tail']]:
+#         word = lemmatizer.lemmatize(node)
+#         if word not in nodes:
+#             nodes.append(word)
 
-print(nodes)
+# print(nodes)
 
 def compute_tf_idf_metric(importants, graph_nodes):
     nb = 0
     max = len(graph_nodes)
     for node in graph_nodes:
-        if node in importants:
-            nb += 1
+        for word in importants:
+            # Obtenir les embeddings des mots
+            embedding1 = model.encode(node, convert_to_tensor=True)
+            embedding2 = model.encode(word, convert_to_tensor=True)
+            similarity = cosine_similarity([embedding1.cpu().numpy()], [embedding2.cpu().numpy()])[0][0]
+            if similarity > 0.6:
+                nb += 1
+                print(f"Le noeud du graphe : {node} ========== Le mot-clé :  {word}")
+                break
     return nb/max
+
+
+# output = """
+# [{'head': 'Donald J. Trump', 'head_type': 'person', 'type': 'has proposed', 'tail': 'policies', 'tail_type': 'concept'}, {'head': 'Michael Feroli', 'head_type': 'person', 'type': 'is', 'tail': 'chief U.S. economist', 'tail_type': 'concept'}, {'head': 'America', 'head_type': 'place', 'type': 'has', 'tail': 'low unemployment', 'tail_type': 'concept'}, {'head': 'Federal Reserve', 'head_type': 'organisation', 'type': 'sets', 'tail': 'interest rates', 'tail_type': 'concept'}, {'head': 'Mr. Trump', 'head_type': 'person', 'type': 'has hinted at', 'tail': 'deregulation', 'tail_type': 'concept'}, {'head': 'Tariffs', 'head_type': 'concept', 'type': 'could boost', 'tail': 'prices for consumers', 'tail_type': 'concept'}, {'head': 'Omair Sharif', 'head_type': 'person', 'type': 'said', 'tail': 'inflation could remain fairly steady', 'tail_type': 'concept'}, {'head': 'Jerome H. Powell', 'head_type': 'person', 'type': 'acknowledged', 'tail': 'different situation', 'tail_type': 'concept'}, {'head': 'Mr. Trump', 'head_type': 'person', 'type': 'promised', 'tail': 'biggest deportation in American history', 'tail_type': 'concept'}, {'head': 'Goldman Sachs', 'head_type': 'organisation', 'type': 'estimated', 'tail': '300,000 to 2.1 million people in 2025', 'tail_type': 'concept'}, {'head': 'Kent Smetters', 'head_type': 'person', 'type': 'said', 'tail': 'small effect on growth or inflation', 'tail_type': 'concept'}, {'head': 'Penn Wharton Budget Model', 'head_type': 'organisation', 'type': 'measures', 'tail': 'fiscal impact of public policies', 'tail_type': 'concept'}]
+# """
+
+output = """
+[{"head": "Donald J. Trump", "head_type": "person", "type": "has proposed", "tail": "policies", "tail_type": "concept"}, {"head": "Michael Feroli", "head_type": "person", "type": "is", "tail": "chief U.S. economist", "tail_type": "concept"}, {"head": "America", "head_type": "place", "type": "has", "tail": "low unemployment", "tail_type": "concept"}, {"head": "Federal Reserve", "head_type": "organisation", "type": "sets", "tail": "interest rates", "tail_type": "concept"}, {"head": "Mr. Trump", "head_type": "person", "type": "has hinted at", "tail": "deregulation", "tail_type": "concept"}, {"head": "Tariffs", "head_type": "concept", "type": "could boost", "tail": "prices for consumers", "tail_type": "concept"}, {"head": "Omair Sharif", "head_type": "person", "type": "said", "tail": "inflation could remain fairly steady", "tail_type": "concept"}, {"head": "Jerome H. Powell", "head_type": "person", "type": "acknowledged", "tail": "different situation", "tail_type": "concept"}, {"head": "Mr. Trump", "head_type": "person", "type": "promised", "tail": "biggest deportation in American history", "tail_type": "concept"}, {"head": "Goldman Sachs", "head_type": "organisation", "type": "estimated", "tail": "300,000 to 2.1 million people in 2025", "tail_type": "concept"}, {"head": "Kent Smetters", "head_type": "person", "type": "said", "tail": "small effect on growth or inflation", "tail_type": "concept"}, {"head": "Penn Wharton Budget Model", "head_type": "organisation", "type": "measures", "tail": "fiscal impact of public policies", "tail_type": "concept"}]
+"""
+
+triplets = json.loads(output)
+# print(triplets)
+
+nodes = []
+for rel in triplets:
+    for node in [rel['head'], rel['tail']]:
+        word = lemmatizer.lemmatize(node)
+        if word not in nodes:
+            nodes.append(word)
+            
+print(nodes)
 
 print(f"Accuracy of tf-idf metric : {100*compute_tf_idf_metric(important_words, nodes):.2f}.%")
