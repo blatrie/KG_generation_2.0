@@ -32,9 +32,10 @@ def chunk_text_with_overlap(sentences):
     """
     chunks = []
     chunk_size = random.choice([1, 2, 3])
-    #while i < len(sentences):
-    for i in range(0, len(sentences), chunk_size):
+    i = 0
+    while i < len(sentences):
         chunk = sentences[i:i+chunk_size]
+        i += chunk_size
         chunks.append(" ".join(chunk))
         if len(chunk) < chunk_size:
             break  # Fin de la segmentation si on atteint la fin du texte
@@ -99,6 +100,6 @@ def process_one_article(file_path, output_json):
 
 if __name__ == '__main__':
     output_json_file = "data/mrebel_training_data.json"
-    file_path = "data/articles/01-Petit-181-216.pdf"  # Spécifiez le chemin de votre article
+    file_path = "data/articles/Ballet-et-Petit-2023_compressed.pdf"  # Spécifiez le chemin de votre article
 
     process_one_article(file_path, output_json_file)
