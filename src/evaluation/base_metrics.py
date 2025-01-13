@@ -1,13 +1,14 @@
+import sys
+sys.path.insert(0, '../pipeline')
+from KB_generation import fetch_all_relations
 import numpy as np
 from pykeen.triples import TriplesFactory
 from pykeen.pipeline import pipeline
 
+relations = fetch_all_relations()
+
 # Définitions des triplets
-triplets = np.array([
-    ['Paris', 'is_capital_of', 'France'],
-    ['France', 'is_part_of', 'Europe'],
-    ['Paris', 'is_in', 'Europe'],
-])
+triplets = np.array([[item['head'], item['relation'], item['tail']] for item in relations])
 
 # Diviser les données
 tf = TriplesFactory.from_labeled_triples(triplets)
@@ -29,4 +30,5 @@ mean_rank = results.metric_results.get_metric('mean_rank')
 print(f"MRR: {mrr_score:.3f}")
 print(f"Hits@10: {hits_at_10:.3f}")
 print(f"Mean Rank: {mean_rank:.2f}")
+
 
