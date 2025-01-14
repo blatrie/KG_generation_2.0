@@ -9,3 +9,4 @@ tst/output*
 tst/results
 pipeline/__pycache__
 src/models/
+src/evaluation/my_pdfs
