@@ -453,3 +453,39 @@ def store_kb(kb):
         
         print("c    stored.")
     return True, partial_merge_time
+
+
+def fetch_all_relations():
+    """
+    Fetch all relations from the database and return them as a list of dictionaries.
+
+    Returns:
+        list: A list of relations, where each relation is represented as a dictionary.
+    """
+    URI = "bolt://localhost:7687"
+    AUTH = ("", "")  # Remplacez par vos identifiants si nécessaire
+
+    relations = []
+    with GraphDatabase.driver(URI, auth=AUTH) as client:
+        with client.session() as session:
+            query = """
+            MATCH (n)-[r]->(m)
+            RETURN n.name AS head, labels(n) AS head_type, n.fname AS head_fname, 
+                   type(r) AS relation, 
+                   m.name AS tail, labels(m) AS tail_type, m.fname AS tail_fname
+            """
+            result = session.run(query)
+            for record in result:
+                relations.append({
+                    "head": record["head"],
+                    "head_type": record["head_type"],
+                    "head_fname": record["head_fname"],
+                    "relation": record["relation"],
+                    "tail": record["tail"],
+                    "tail_type": record["tail_type"],
+                    "tail_fname": record["tail_fname"]
+                })
+
+    return relations
+
+

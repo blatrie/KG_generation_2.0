@@ -38,7 +38,7 @@ def preprocess_data(example):
     return inputs
 
 # Charger le fichier JSON
-with open('mrebel_training_data.json', 'r') as f:
+with open('data/mrebel_training_data.json', 'r') as f:
     data = json.load(f)
 
 # Convertir les données en format Dataset de Hugging Face
