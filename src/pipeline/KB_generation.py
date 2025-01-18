@@ -7,6 +7,7 @@ from params import tokenizer, rdf_model, PATH_TO_RDF_FILES, ACTIVATE_SIMILARITY,
 from all_mini import compare_with_all_mini
 from semantic_segmentation import *
 import time
+from clustering_merge import batch_merge_triplets
 
 # knowledge base class for meta data collection
 class KB():
@@ -312,10 +313,10 @@ def store_kb(kb):
         # Check the connection
         client.verify_connectivity()
 
-        # *** STEP: Clear the database ***
-        with client.session() as session:
-            session.run("MATCH (n) DETACH DELETE n")
-        print("c    database cleared.")
+        # # *** STEP: Clear the database ***
+        # with client.session() as session:
+        #     session.run("MATCH (n) DETACH DELETE n")
+        # print("c    database cleared.")
 
         partial_merge_time = 0
         history=[]
@@ -489,3 +490,99 @@ def fetch_all_relations():
     return relations
 
 
+
+
+
+
+def store_kb_clustering(kb, clusters, model):
+    """
+    Store the knowledge base (KB) by finding the nearest cluster for each triplet
+    and adding new triplets to the database.
+
+    Args:
+        kb (KnowledgeBase): The knowledge base object containing the entities and relations.
+        clusters (dict): Dictionary containing the current clusters of triplets.
+        batch_merge_triplets (function): Function to find the nearest cluster and merge triplets.
+        model: The embedding model used to generate triplet embeddings.
+
+    Returns:
+        bool: True if the KB is successfully stored, False otherwise.
+    """
+    print("c    storing...")
+
+    # Define correct URI and AUTH arguments (no AUTH by default)
+    URI = "bolt://localhost:7687"
+    AUTH = ("", "")
+    updated_clusters = None
+    with GraphDatabase.driver(URI, auth=AUTH) as client:
+        # Check the connection
+        client.verify_connectivity()
+        print("c    database connection verified.")
+
+        # Initialize variables
+        partial_merge_time = 0
+        history = []
+
+        # Batch process the triplets
+        batch_size = 100  # Adjust as needed for performance
+        triplets = kb.relations
+        for i in range(0, len(triplets), batch_size):
+            # Process a batch of triplets
+            batch = triplets[i:i + batch_size]
+
+            # Merge the batch into the nearest clusters
+            start_time = time.time()
+            updated_clusters, new_triplets = batch_merge_triplets(batch, clusters, model)
+            partial_merge_time += time.time() - start_time
+
+            # Store new triplets in the database
+            for triplet in new_triplets:
+                head = triplet['head']
+                head_type = triplet['head_type']
+                relation_type = triplet['type']
+                tail = triplet['tail']
+                tail_type = triplet['tail_type']
+                fname = triplet['fname']
+
+                head = clear_str(head)
+                tail = clear_str(tail)
+                head_type = clear_str(head_type)
+                tail_type = clear_str(tail_type)
+                relation_type = clear_str(relation_type)
+                fname = clear_str(fname)
+
+                if head != "" and tail != "" and relation_type != "" and head != tail:
+                    # Check if head node exists in the database
+                    query = f"MATCH (n:`{head_type}`) WHERE n.name = '{head}' RETURN n"
+                    with client.session() as session:
+                        result = session.run(query)
+                        if not result.single():
+                            # Create head node
+                            query = f"CREATE (n:`{head_type}` {{name: '{head}', fname: '{fname}', head_type: '{head_type}'}})"
+                            session.run(query)
+                            history.append(query)
+
+                    # Check if tail node exists in the database
+                    query = f"MATCH (n:`{tail_type}`) WHERE n.name = '{tail}' RETURN n"
+                    with client.session() as session:
+                        result = session.run(query)
+                        if not result.single():
+                            # Create tail node
+                            query = f"CREATE (n:`{tail_type}` {{name: '{tail}', fname: '{fname}', tail_type: '{tail_type}'}})"
+                            session.run(query)
+                            history.append(query)
+
+                    # Check if relation exists in the database
+                    query = f"MATCH (n:`{head_type}`)-[r:`{relation_type}`]->(m:`{tail_type}`) WHERE n.name = '{head}' AND m.name = '{tail}' RETURN r"
+                    with client.session() as session:
+                        result = session.run(query)
+                        if not result.single():
+                            # Create relation
+                            query = f"MATCH (n:`{head_type}`), (m:`{tail_type}`) WHERE n.name = '{head}' AND m.name = '{tail}' CREATE (n)-[r:`{relation_type}`]->(m)"
+                            session.run(query)
+                            history.append(query)
+                else:
+                    print("c    Invalid triplet skipped: ", head, relation_type, tail)
+
+        print("c    stored.")
+    return True, partial_merge_time, updated_clusters
