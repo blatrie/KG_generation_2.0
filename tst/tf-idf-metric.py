@@ -43,7 +43,7 @@ feature_names = vectorizer.get_feature_names_out()
 # Calculer la moyenne des scores TF-IDF pour chaque mot sur tous les documents
 tfidf_scores = np.mean(tfidf_matrix.toarray(), axis=0)
 
-# Obtenir les indices des 6 scores les plus élevés
+# Obtenir les indices des 20 scores les plus élevés
 top_indices = np.argsort(tfidf_scores)[-20:][::-1]
 
 # Afficher les 6 mots les plus importants et leurs scores

@@ -9,3 +9,6 @@ tst/output*
 tst/results
 pipeline/__pycache__
 src/models/
+src/evaluation/my_pdfs
+src/evaluation/finetuning_usable_text.pth
+src/finetuning/__pycache__
