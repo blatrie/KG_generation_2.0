@@ -31,6 +31,8 @@ def preprocess_triplets_list(triplets):
 
 
 def initial_load(triplets, model = merge_model):
+    if not triplets:
+        return {}
     # Step 1: Prepare Triplet Data
     procecessed_triplets = preprocess_triplets_list(triplets)
     print(len(procecessed_triplets))
