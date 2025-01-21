@@ -312,10 +312,10 @@ def store_kb(kb):
         # Check the connection
         client.verify_connectivity()
 
-        # *** STEP: Clear the database ***
-        with client.session() as session:
-            session.run("MATCH (n) DETACH DELETE n")
-        print("c    database cleared.")
+        # # *** STEP: Clear the database ***
+        # with client.session() as session:
+        #     session.run("MATCH (n) DETACH DELETE n")
+        # print("c    database cleared.")
 
         partial_merge_time = 0
         history=[]
