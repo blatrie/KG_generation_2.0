@@ -38,6 +38,23 @@
 
 <body>
 
+  <button id="clearGraphButton">Clear Graph</button>
+
+  <script>
+      document.getElementById("clearGraphButton").addEventListener("click", () => {
+          fetch('/clear_graph', {
+              method: 'POST',
+          }).then(response => {
+              if (response.ok) {
+                  alert("Graph cleared successfully!");
+                  location.reload(); // Reload the page to reflect changes
+              } else {
+                  alert("Failed to clear the graph.");
+              }
+          });
+      });
+  </script>
+  
   <!-- ======= Mobile nav toggle button ======= -->
   <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
   <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
