@@ -14,7 +14,7 @@ def get_text(file):
         str: The extracted text from the PDF file.
     """
     text = ""
-    print(file)
+    # print(file)
     # Si le fichier est un chemin (string), on l'ouvre en mode binaire
     if isinstance(file, str):
         with open(file, "rb") as f:

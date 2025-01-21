@@ -57,7 +57,7 @@ def initial_load(triplets, model = merge_model):
     return clusters
 
 # Step 5: Intra-Cluster Merging
-def merge_within_cluster(cluster_triplets, model = merge_model, threshold=0.85):
+def merge_within_cluster(cluster_triplets, model = merge_model, threshold=0.75):
     merged_triplets = []
     while cluster_triplets:
         current = cluster_triplets.pop(0)
@@ -76,7 +76,7 @@ def merge_within_cluster(cluster_triplets, model = merge_model, threshold=0.85):
         if not similar_found:
             merged_triplets.append(current)
 
-    return merged_triplets
+    return merged_triplets 
 
 def merge_within_clusters(clusters, model = merge_model):
     return {label: merge_within_cluster(cluster, model) for label, cluster in clusters.items() if label != -1}
@@ -84,10 +84,10 @@ def merge_within_clusters(clusters, model = merge_model):
 
 
 # Step 5: Insertion Logic
-def insert_new_triplet(new_triplet, clusters, model = merge_model, threshold=0.85):
+def insert_new_triplet(new_triplet, clusters, model = merge_model, threshold=0.75):
     # new_embedding = model.encode([ " ".join([new_triplet[fields[0]], new_triplet[fields[1]], new_triplet[fields[2]]]) ])[0]
+    # print("new_triplet", new_triplet)
     new_embedding = model.encode([ new_triplet])[0]
-
     # print(np.array(new_embedding).shape)
     for cluster_id, cluster_triplets in clusters.items():
         cluster_embeddings = model.encode(cluster_triplets)
@@ -95,30 +95,19 @@ def insert_new_triplet(new_triplet, clusters, model = merge_model, threshold=0.8
         similarities = cosine_similarity([new_embedding], cluster_embeddings).flatten()
         if np.max(similarities) > threshold:
             # Similar triplet found, handle merge or discard
-            return cluster_id, cluster_triplets[np.argmax(similarities)]
+            return clusters, False # not effectively added
     
     # No similar triplet found, create a new cluster
     new_cluster_id = max(clusters.keys()) + 1
     clusters[new_cluster_id] = [new_triplet]
-    return new_cluster_id, None
+    return clusters, True # effectively added
 
-def batch_merge_triplets(triplets, clusters, model = merge_model, threshold=0.85):
-    similar_triplets_log = []
-    
-    for new_triplet in triplets:
-        cluster_id, similar_triplet = insert_new_triplet(new_triplet, clusters, model, threshold)
-        
-        if similar_triplet:
-            similar_triplets_log.append({
-                'new_triplet': new_triplet,
-                'cluster_id': cluster_id,
-                'similar_triplet': similar_triplet
-            })
-        else:
-            similar_triplets_log.append({
-                'new_triplet': new_triplet,
-                'cluster_id': cluster_id,
-                'similar_triplet': None
-            })
-    # merged_clusters = {label: merge_within_cluster(cluster, model) for label, cluster in clusters.items() if label != -1} 
-    return similar_triplets_log, clusters
+def batch_merge_triplets(new_triplets, clusters, model = merge_model, threshold=0.75):
+    # print("cluster before adding", clusters)
+    added_triplets = []
+    new_triplets = preprocess_triplets_list(new_triplets)
+    for new_triplet in new_triplets:
+        updated_clusters,  effectively_added = insert_new_triplet(new_triplet, clusters, model, threshold)
+        if effectively_added :
+            added_triplets.append(new_triplet)
+    return merge_within_clusters(updated_clusters), added_triplets

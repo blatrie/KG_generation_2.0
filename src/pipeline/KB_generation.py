@@ -3,12 +3,10 @@ import torch
 from neo4j import GraphDatabase
 import re
 from merge_RDF import similarity_score
-from params import tokenizer, rdf_model, PATH_TO_RDF_FILES, ACTIVATE_SIMILARITY, DEVICE
+from params import tokenizer, rdf_model, merge_model, PATH_TO_RDF_FILES, ACTIVATE_SIMILARITY, DEVICE
 from all_mini import compare_with_all_mini
-from semantic_segmentation import *
 import time
 from clustering_merge import batch_merge_triplets
-
 # knowledge base class for meta data collection
 class KB():
     def __init__(self):
@@ -23,18 +21,6 @@ class KB():
         for r in self.relations:
             print(f"  {r}")
         
-
-# def get_kb_triplets(text):
-#     # kb = KB()
-#     max_char_length = 3000
-#     max_length = 512
-#     text_parts = [text[i:i+max_char_length] for i in range(0, len(text), max_length)]
-#     relations= []
-#     for part in text_parts:
-#         kb = KB()
-#         kb, _ = get_kb(part, max_length = max_length, kb = kb)
-#         relations.extend(kb.relations)
-#     return relations
 
 def extract_relations_from_model_output(text):
     triplets = []
@@ -75,50 +61,33 @@ def extract_relations_from_model_output(text):
 
 
 # extract relations for each span and put them together in a knowledge base
-def get_kb(text, segmentation="syntactic", span_length=128, max_length=256, verbose=False, kb=KB(), pdf_name="", threshold=0.5):
+def get_kb(text, span_length=128, verbose=False, kb=KB(), pdf_name=""):
+    # tokenize whole text
+    inputs = tokenizer([text], max_length=256, padding=True, truncation=True,  return_tensors = 'pt')
 
+    # compute span boundaries
+    num_tokens = len(inputs["input_ids"][0])
+    if verbose:
+        print(f"Input has {num_tokens} tokens")
+    num_spans = math.ceil(num_tokens / span_length)
+    if verbose:
+        print(f"Input has {num_spans} spans")
+    overlap = math.ceil((num_spans * span_length - num_tokens) /
+                        max(num_spans - 1, 1))
     spans_boundaries = []
-    tensor_ids = []
-    tensor_masks = []
-    if segmentation == "syntactic":
-        # tokenize whole text
-        inputs = tokenizer([text], max_length=max_length, padding=True, truncation=True,  return_tensors = 'pt')
+    start = 0
+    for i in range(num_spans):
+        spans_boundaries.append([start + span_length * i,
+                                 start + span_length * (i + 1)])
+        start -= overlap
+    if verbose:
+        print(f"Span boundaries are {spans_boundaries}")
 
-        # compute span boundaries
-        num_tokens = len(inputs["input_ids"][0])
-        if verbose:
-            print(f"Input has {num_tokens} tokens")
-        num_spans = math.ceil(num_tokens / span_length)
-        if verbose:
-            print(f"Input has {num_spans} spans")
-        overlap = math.ceil((num_spans * span_length - num_tokens) /
-                            max(num_spans - 1, 1))
-
-        start = 0
-        for i in range(num_spans):
-            spans_boundaries.append([start + span_length * i,
-                                    start + span_length * (i + 1)])
-            start -= overlap
-        if verbose:
-            print(f"Span boundaries are {spans_boundaries}")
-
-        # transform input with spans
-        tensor_ids = [inputs["input_ids"][0][boundary[0]:boundary[1]]
+    # transform input with spans
+    tensor_ids = [inputs["input_ids"][0][boundary[0]:boundary[1]]
+                  for boundary in spans_boundaries]
+    tensor_masks = [inputs["attention_mask"][0][boundary[0]:boundary[1]]
                     for boundary in spans_boundaries]
-        tensor_masks = [inputs["attention_mask"][0][boundary[0]:boundary[1]]
-                        for boundary in spans_boundaries]
-        
-    elif segmentation == "semantic":
-        # Ségmentation sémantique
-        segments = segment_text(text, threshold=threshold)
-        if verbose:
-            print(f"Semantic segmentation produced {len(segments)} segments")
-        
-        for segment in segments:
-            segment_inputs = tokenizer([segment], max_length=max_length, padding="max_length", truncation=True, return_tensors='pt')
-            tensor_ids.append(segment_inputs["input_ids"][0])
-            tensor_masks.append(segment_inputs["attention_mask"][0])
-            spans_boundaries.append([0, len(segment)])  # Boundaries are conceptual for semantic segments
 
     inputs = {
         "input_ids": torch.stack(tensor_ids).to(DEVICE),
@@ -324,12 +293,6 @@ def store_kb(kb):
     with GraphDatabase.driver(URI, auth=AUTH) as client:
         # Check the connection
         client.verify_connectivity()
-
-        # # *** STEP: Clear the database ***
-        # with client.session() as session:
-        #     session.run("MATCH (n) DETACH DELETE n")
-        # print("c    database cleared.")
-
         partial_merge_time = 0
         history=[]
                 
@@ -351,7 +314,7 @@ def store_kb(kb):
             if head != "" and tail != "" and relation_type != "" and head != tail and head != relation_type and tail != relation_type :
                 # get all node's name where node's head_type is the same as the head_type of the current head node
                 query_head = f"MATCH (n) WHERE n.head_type = '{head_type}' RETURN n.name"
-                query_tail = f"MATCH (n) WHERE n.tail_type = '{tail_type}' RETURN n.name"    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                query_tail = f"MATCH (n) WHERE n.head_type = '{head_type}' RETURN n.name"
                 
                 with client.session() as session:
                     try :
@@ -388,7 +351,7 @@ def store_kb(kb):
                         else :
                             score_tail = compare_with_all_mini(tail, node)
                             # print("We need to use all_mini, score is : ", score_head)
-
+                        
                         if score_head > best_score_head :
                             best_score_head = score_head
                             best_node_head = node
@@ -463,10 +426,10 @@ def store_kb(kb):
                         print("c    ", query, "already in the database")
             else :
                 print("something is wrong with the relation : ", head, relation_type, tail)
+            
         
         print("c    stored.")
     return True, partial_merge_time
-
 
 def fetch_all_relations():
     """
@@ -506,7 +469,7 @@ def fetch_all_relations():
 
 
 
-def store_kb_clustering(kb, clusters, model = rdf_model):
+def store_kb_clustering(kb, clusters, model = merge_model):
     """
     Store the knowledge base (KB) by finding the nearest cluster for each triplet
     and adding new triplets to the database.

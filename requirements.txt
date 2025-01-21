@@ -21,3 +21,4 @@ PyPDF2
 networkx
 unidecode
 sentence_transformers
+spacy

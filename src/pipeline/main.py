@@ -1,6 +1,6 @@
 from text_selection import get_text
 from KB_generation import get_kb, store_kb, KB, store_kb_clustering, fetch_all_relations
-from clustering_merge import initial_load
+from clustering_merge import initial_load, merge_within_clusters
 from llama import extract_triplets, merge_triplets
 import time
 import streamlit as st #  export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
@@ -25,9 +25,7 @@ def main() :
     st.title("Knowledge Graph Generation")
     files = st.file_uploader("Upload a directory contaning PDF files", accept_multiple_files=True, type="pdf")
 
-    batch_size_save = 1000
-    batch_size = 1000
-
+    batch_size_save = 500
     # files = get_files(path=upload_path)
     if files != [] : 
         with st.status("Generating graph...", expanded=True) as status:
@@ -35,15 +33,10 @@ def main() :
             model_time = 0
             merge_time = 0
             model_time = 0
-            triplets = []
-            text_part_in = "The dog loves the toy. The capitalism is the opposite of Socialism"
-            kb_in, partial_model_time_in = get_kb(text_part_in, max_length = 128, verbose=False, kb=kb, pdf_name="test")
-            clusters = initial_load(kb_in.relations)
-            # clusters = []
             kb = KB()
-            batch_size = 1000
+            batch_size = 500
             text_in = "The quick brown fox jumps over the lazy dog. The capitalism is the opposite of Socialism. "
-            kb_in, partial_model_time_in = get_kb( text_in, max_length = 128, verbose=False, kb=kb, pdf_name="test")
+            kb_in, partial_model_time_in = get_kb( text_in, verbose=False, kb=kb, pdf_name="test")
             print(kb_in.relations)
             clusters = initial_load(kb_in.relations)
 
@@ -57,11 +50,16 @@ def main() :
                     else :
                         text_part = text[i:i+batch_size]
                     partial_model_time = 0
-                    kb, partial_model_time = get_kb(text_part, max_length = 128, verbose=False, kb=kb, pdf_name=file.name)
+                    kb, partial_model_time = get_kb(text_part, verbose=False, kb=kb, pdf_name=file.name)
+                    # print(kb.relations)
                     if i % batch_size_save == 0 :
                         # is_stored, partial_merge_time = store_kb(kb)
                         is_stored, partial_merge_time, clusters = store_kb_clustering(kb, clusters)
-
+                        # clusters = merge_within_clusters(clusters)
+                        # print()
+                        # print(clusters)
+                        # print()
+                        
                         # reset kb
                         kb = KB()
                     pourcentage_progress_bar.progress(int(i/len(text)*100))
