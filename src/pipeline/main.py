@@ -41,6 +41,12 @@ def main() :
             clusters = initial_load(kb_in.relations)
             # clusters = []
             kb = KB()
+            batch_size = 1000
+            text_in = "The quick brown fox jumps over the lazy dog. The capitalism is the opposite of Socialism. "
+            kb_in, partial_model_time_in = get_kb( text_in, max_length = 128, verbose=False, kb=kb, pdf_name="test")
+            print(kb_in.relations)
+            clusters = initial_load(kb_in.relations)
+
             for idx, file in enumerate(files):
                 st.write("Generating graph for : ", file.name)
                 pourcentage_progress_bar = st.progress(0)

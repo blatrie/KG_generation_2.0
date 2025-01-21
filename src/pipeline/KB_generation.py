@@ -24,6 +24,18 @@ class KB():
             print(f"  {r}")
         
 
+# def get_kb_triplets(text):
+#     # kb = KB()
+#     max_char_length = 3000
+#     max_length = 512
+#     text_parts = [text[i:i+max_char_length] for i in range(0, len(text), max_length)]
+#     relations= []
+#     for part in text_parts:
+#         kb = KB()
+#         kb, _ = get_kb(part, max_length = max_length, kb = kb)
+#         relations.extend(kb.relations)
+#     return relations
+
 def extract_relations_from_model_output(text):
     triplets = []
     relation = ''
@@ -494,7 +506,7 @@ def fetch_all_relations():
 
 
 
-def store_kb_clustering(kb, clusters, model):
+def store_kb_clustering(kb, clusters, model = rdf_model):
     """
     Store the knowledge base (KB) by finding the nearest cluster for each triplet
     and adding new triplets to the database.
