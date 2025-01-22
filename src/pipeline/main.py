@@ -1,6 +1,6 @@
 from text_selection import get_text
 from KB_generation import get_kb, store_kb, KB, store_kb_clustering, fetch_all_relations
-from clustering_merge import initial_load, merge_within_clusters
+from clustering_merge import initial_load
 from llama import extract_triplets, merge_triplets
 import time
 import streamlit as st #  export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python

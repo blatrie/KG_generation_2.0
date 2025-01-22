@@ -13,7 +13,7 @@ print(f"Device : {DEVICE}")
 
 merge_model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2').to(DEVICE)
 
-tokenizer = AutoTokenizer.from_pretrained("Babelscape/mrebel-large", tgt_lang="tp_XX")  # you can add src_lang= "en_XX" or "fr_XX to add an input language. Makes the model more precise !
+tokenizer = AutoTokenizer.from_pretrained("Babelscape/mrebel-large", tgt_lang="en_XX")  # (tp_XX) you can add src_lang= "en_XX" or "fr_XX to add an input language. Makes the model more precise !
 rdf_model = AutoModelForSeq2SeqLM.from_pretrained("Babelscape/mrebel-large").to(DEVICE)
 
 PATH_TO_PDF_FILES = os.path.abspath("./pdf-files/")+'/'

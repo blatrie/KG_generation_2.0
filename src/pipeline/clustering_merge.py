@@ -1,4 +1,4 @@
-
+from typing import List, Dict, Tuple, Set
 from sklearn.cluster import DBSCAN
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
@@ -8,7 +8,7 @@ fields = ['head', 'type', 'tail']
 
 
 
-def is_good_triplet(triplet):
+def is_good_triplet(triplet: dict) -> bool:
     # Destructure the triplet for cleaner access
     head, tail, triplet_type = triplet['head'].replace(".", ""), triplet['tail'].replace(".", ""), triplet['type'].replace(".", "")
 
@@ -19,7 +19,7 @@ def is_good_triplet(triplet):
 
     return is_not_long and is_not_empty and is_not_same_tail_head
 
-def preprocess_triplets_list(triplets):
+def preprocess_triplets_list(triplets: List[dict]) -> List[dict]:
     kb_triplets_unique = [eval(triplet) for triplet in set(map(str, triplets))]
     filtered_triplets = [
         triplet for triplet in kb_triplets_unique
@@ -30,7 +30,7 @@ def preprocess_triplets_list(triplets):
 
 
 
-def initial_load(triplets, model = merge_model):
+def initial_load(triplets: List[dict], model=merge_model) -> Dict[int, List[dict]]:
     if not triplets:
         return {}
     # Step 1: Prepare Triplet Data
@@ -57,7 +57,7 @@ def initial_load(triplets, model = merge_model):
     return clusters
 
 # Step 5: Intra-Cluster Merging
-def merge_within_cluster(cluster_triplets, model = merge_model, threshold=0.75):
+def merge_within_cluster(cluster_triplets: List[dict], model=merge_model, threshold=0.75) -> List[dict]:
     merged_triplets = []
     while cluster_triplets:
         current = cluster_triplets.pop(0)
@@ -78,13 +78,14 @@ def merge_within_cluster(cluster_triplets, model = merge_model, threshold=0.75):
 
     return merged_triplets 
 
-def merge_within_clusters(clusters, model = merge_model):
+def merge_within_clusters(clusters: Dict[int, List[dict]], model=merge_model) -> Dict[int, List[dict]]:
     return {label: merge_within_cluster(cluster, model) for label, cluster in clusters.items() if label != -1}
 
 
 
 # Step 5: Insertion Logic
-def insert_new_triplet(new_triplet, clusters, model = merge_model, threshold=0.75):
+def insert_new_triplet(new_triplet: dict, clusters: Dict[int, List[dict]], 
+                      model=merge_model, threshold=0.75) -> Tuple[Dict[int, List[dict]], bool]:
     # new_embedding = model.encode([ " ".join([new_triplet[fields[0]], new_triplet[fields[1]], new_triplet[fields[2]]]) ])[0]
     # print("new_triplet", new_triplet)
     new_embedding = model.encode([ new_triplet])[0]
@@ -102,10 +103,12 @@ def insert_new_triplet(new_triplet, clusters, model = merge_model, threshold=0.7
     clusters[new_cluster_id] = [new_triplet]
     return clusters, True # effectively added
 
-def batch_merge_triplets(new_triplets, clusters, model = merge_model, threshold=0.75):
+def batch_merge_triplets(new_triplets: List[dict], clusters: Dict[int, List[dict]], 
+                        model=merge_model, threshold=0.75) -> Tuple[Dict[int, List[dict]], List[dict]]:
     # print("cluster before adding", clusters)
     added_triplets = []
     new_triplets = preprocess_triplets_list(new_triplets)
+    updated_clusters = clusters
     for new_triplet in new_triplets:
         updated_clusters,  effectively_added = insert_new_triplet(new_triplet, clusters, model, threshold)
         if effectively_added :
