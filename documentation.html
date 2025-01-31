@@ -1,0 +1,643 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Module Documentation</title>
+        <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
+            h1 { color: #333; }
+            ul { list-style-type: none; padding-left: 20px; }
+            .function { margin-bottom: 20px; }
+            .function h3 { color: #333; }
+            .docstring { background: #f9f9f9; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        </style>
+        <script>
+            function toggleVisibility(elementId) {
+                const element = document.getElementById(elementId);
+                if (element.style.display === "none") {
+                    element.style.display = "block";
+                } else {
+                    element.style.display = "none";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Module Documentation</h1>
+        <ul><li><span onclick="toggleVisibility('root_generate_doc_py')" style="cursor: pointer; color: #0056b3;">📄 generate_doc.py</span><div id='root_generate_doc_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>This script extracts function and module docstrings from Python files in a given directory 
+and generates an HTML documentation file. 
+
+Features:
+- Recursively scans directories to collect documentation.
+- Extracts both module-level and function-level docstrings.
+- Generates an interactive HTML file with expandable sections for better readability.</pre></div><div class='function'><h3>extract_function_docs_from_file(file_path)</h3><div class='docstring'><pre>Extracts module and function docstrings from a Python file.
+
+Args:
+    file_path (str): Path to the Python file.
+
+Returns:
+    dict: A dictionary containing the module docstring and a list of function docstrings.</pre></div></div><div class='function'><h3>extract_function_docs_from_directory(directory)</h3><div class='docstring'><pre>Traverses a directory and extracts docstrings from Python files.
+Args:
+    directory (str): Path to the directory to traverse.
+Returns:
+    dict: Tree-like dictionary representing directories, files, and their functions.</pre></div></div><div class='function'><h3>generate_html_documentation(tree, output_file)</h3><div class='docstring'><pre>Generates an HTML file containing module documentation in a directory tree structure.
+Args:
+    tree (dict): Directory tree with files and functions.
+    output_file (str): Path to the output HTML file.</pre></div></div><div class='function'><h3>build_tree(current_path)</h3><div class='docstring'><pre>No documentation provided.</pre></div></div><div class='function'><h3>render_tree(tree, parent_id)</h3><div class='docstring'><pre>No documentation provided.</pre></div></div></div></li><li><span onclick="toggleVisibility('root_src')" style="cursor: pointer; color: #0056b3;">📁 src</span><div id='root_src' style='display: none; margin-left: 20px;'><ul><li><span onclick="toggleVisibility('root_src_evaluation')" style="cursor: pointer; color: #0056b3;">📁 evaluation</span><div id='root_src_evaluation' style='display: none; margin-left: 20px;'><ul><li><span onclick="toggleVisibility('root_src_evaluation_pykeen_metrics_py')" style="cursor: pointer; color: #0056b3;">📄 pykeen_metrics.py</span><div id='root_src_evaluation_pykeen_metrics_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>This script computes knowledge graph embedding metrics using PyKEEN.
+It fetches relational triplets, splits them into training and test sets,
+trains a TransE model, and evaluates its performance.
+
+Usage:
+Run this script to compute and display metrics such as MRR, Hits@10, and Mean Rank.</pre></div><div class='function'><h3>compute_pykeen_metrics()</h3><div class='docstring'><pre>Compute knowledge graph embedding metrics using PyKEEN.
+
+- Fetches relational triplets.
+- Splits data into training and test sets.
+- Trains a TransE model.
+- Evaluates the model and prints key metrics (MRR, Hits@10 and Mean Rank).</pre></div></div></div></li><li><span onclick="toggleVisibility('root_src_evaluation_tf_idf_py')" style="cursor: pointer; color: #0056b3;">📄 tf_idf.py</span><div id='root_src_evaluation_tf_idf_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>This script performs the extraction of important keywords from a set of PDF documents, evaluates their relevance based on a pre-trained model, 
+and computes a score based on the match between extracted keywords and nodes in a knowledge graph.
+
+Key Steps:
+1. Extracts text from PDF files in a given directory.
+2. Splits the text into sentences and further chunks them into manageable sections.
+3. Evaluates the usability of each chunk using a pre-trained text classifier model.
+4. Extracts the top-n important n-grams (keywords) from the usable text chunks using TF-IDF.
+5. Computes the similarity between extracted keywords and nodes from a knowledge graph based on cosine similarity of their embeddings.
+
+Usage:
+1. Call the `compute_tfidf_score()` function with the path to the directory containing PDFs and a pre-trained model.
+2. The function will return the proportion of keywords that match nodes in the knowledge graph.</pre></div><div class='function'><h3>extract_text_from_pdfs(directory)</h3><div class='docstring'><pre>Extracts text from all PDF files in the given directory.
+
+Args:
+    directory (str): Path to the directory containing PDF files.
+
+Returns:
+    list of str: List of texts extracted from each PDF.</pre></div></div><div class='function'><h3>chunk_text(sentences, chunk_size)</h3><div class='docstring'><pre>Splits sentences into chunks.
+
+Args:
+    sentences (list): List of sentences to split.
+    chunk_size (int): Size of each chunk.
+
+Returns:
+    list: List of overlapping chunks.</pre></div></div><div class='function'><h3>combine_chunks(chunks)</h3><div class='docstring'><pre>Combines a list of chunks into a single string.
+
+Args:
+    chunks (list): List of chunks (paragraphs).
+
+Returns:
+    str: Combined text as a single string.</pre></div></div><div class='function'><h3>is_usable_text(text, model, tokenizer, threshold, device)</h3><div class='docstring'><pre>Predicts whether a text is usable based on a threshold.
+
+Args:
+    text (str): Text to evaluate.
+    model: Pre-trained model.
+    tokenizer: Tokenizer associated with the model.
+    threshold (float): Threshold to determine if the text is usable.
+    device (str): Device to run the model on (e.g., 'cpu' or 'cuda').
+    
+Returns:
+    bool: True if the probability exceeds the threshold, otherwise False.</pre></div></div><div class='function'><h3>get_keywords(directory, n, min_grams, n_grams, model, tokenizer, threshold, device)</h3><div class='docstring'><pre>Calculates the top-n important n-grams using TF-IDF for a directory of PDF files.
+
+Args:
+    directory (str): Path to the directory containing PDF files.
+    n (int): Number of top n-grams to return based on the TF-IDF score.
+    n_grams (int): The size of the n-grams (e.g., 3 for trigrams).
+    model: Pre-trained model used to evaluate text chunks.
+    tokenizer: Tokenizer associated with the model.
+    threshold (float): Threshold to filter out irrelevant text chunks.
+    device (str): Device to run the model on (e.g., 'cpu' or 'cuda').
+
+Returns:
+    list of tuples: List of the top-n n-grams and their corresponding TF-IDF scores.</pre></div></div><div class='function'><h3>compute_tfidf_score(directory, n, model, tokenizer, min_grams, n_grams, usable_threshold, cos_sim_thresold, device)</h3><div class='docstring'><pre>Computes a score based on the match between extracted keywords and nodes in a knowledge graph,
+using cosine similarity between their embeddings.
+
+Args:
+    directory (str): Directory containing documents for keyword extraction.
+    n (int): Number of keywords to keep after filtering.
+    min_grams (int, optional): Minimum n-gram length for keyword extraction. Default is 1.
+    n_grams (int, optional): Maximum n-gram length for keyword extraction. Default is 3.
+    model: Model used for keyword extraction.
+    tokenizer: Tokenizer used with the model for keyword extraction.
+    usable_threshold (float, optional): Minimum threshold to retain a keyword based on its relevance. Default is 0.49.
+    cos_sim_thresold (float, optional): Cosine similarity threshold to consider a keyword related to a node. Default is 0.75.
+    device (str, optional): Device for computation (e.g., 'cpu', 'cuda'). Default is 'cpu'.
+
+Returns:
+    float: Proportion of keywords that match at least one node in the knowledge graph.</pre></div></div><div class='function'><h3>__init__(self, pretrained_model_name)</h3><div class='docstring'><pre>No documentation provided.</pre></div></div><div class='function'><h3>forward(self, input_ids, attention_mask, token_type_ids)</h3><div class='docstring'><pre>No documentation provided.</pre></div></div></div></li></ul></div></li><li><span onclick="toggleVisibility('root_src_finetuning')" style="cursor: pointer; color: #0056b3;">📁 finetuning</span><div id='root_src_finetuning' style='display: none; margin-left: 20px;'><ul><li><span onclick="toggleVisibility('root_src_finetuning_generate_article_triples_py')" style="cursor: pointer; color: #0056b3;">📄 generate_article_triples.py</span><div id='root_src_finetuning_generate_article_triples_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>This script processes a single article (PDF file) to extract relational triplets 
+and save them in a JSON format. This is useful for generating the training set required for finetuning MRebel (but it's not perfect). 
+It performs the following tasks:
+
+- Extracts text from a PDF file.
+- Translates the text if necessary.
+- Splits the text into sentences.
+- Breaks the sentences into random-sized chunks.
+- Extracts relational triplets from each chunk using Llama3.1.
+- Saves the extracted triplets along with the corresponding text segments into a JSON file.
+
+Usage:
+Run this script with a specific PDF file to extract triplets and append them to an existing 
+JSON file. If the JSON file does not exist, it will create a new one.</pre></div><div class='function'><h3>chunk_text(sentences)</h3><div class='docstring'><pre>Splits the text into chunks of random sizes.
+
+This function divides a list of sentences into chunks, where each chunk 
+contains 1, 2, or 3 sentences chosen randomly. 
+
+Args:
+    sentences (list): A list of sentences to be split into chunks.
+
+Returns:
+    list: A list of chunks where each chunk is a string of sentences.</pre></div></div><div class='function'><h3>process_one_article(file_path, output_json)</h3><div class='docstring'><pre>Processes a single PDF file, extracts text, translates if needed, segments it, 
+and extracts triplets for each segment, then stores the results in a JSON file.
+
+This function performs multiple steps: 
+- Extracting text from a PDF
+- Translating the text if necessary
+- Segmenting the text into chunks of different sizes
+- Extracting triplets from each chunk
+- Writing the results to a JSON file.
+
+Args:
+    file_path (str): The path to the PDF file to process.
+    output_json (str): The path to the JSON file where the triplets will be saved.</pre></div></div></div></li><li><span onclick="toggleVisibility('root_src_finetuning_generate_text_chunks_py')" style="cursor: pointer; color: #0056b3;">📄 generate_text_chunks.py</span><div id='root_src_finetuning_generate_text_chunks_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>This script processes a single article (PDF file) to save segments with the label 0 in a JSON format (the label will have to be adjusted manually if the segment is relevant or not).
+This is useful for generating the training set required for finetuning all-Mini or bge-small to know if a segment is relevant or not. 
+It performs the following tasks:
+
+- Extracts text from a PDF file.
+- Translates the text if necessary.
+- Splits the text into sentences.
+- Breaks the sentences into random-sized chunks.
+- Saves text segments with label 0 into a JSON file.
+
+Usage:
+Run this script with a specific PDF file to append its segments (with label 0) to an existing 
+JSON file. If the JSON file does not exist, it will create a new one.</pre></div><div class='function'><h3>chunk_text(sentences)</h3><div class='docstring'><pre>Splits the text into chunks of random sizes.
+
+This function divides a list of sentences into chunks, where each chunk 
+contains 1, 2, or 3 sentences chosen randomly. 
+
+Args:
+    sentences (list): A list of sentences to be split into chunks.
+
+Returns:
+    list: A list of chunks where each chunk is a string of sentences.</pre></div></div><div class='function'><h3>process_one_article(file_path, output_json)</h3><div class='docstring'><pre>Processes a single PDF file, extracts text, translates if needed, segments it, 
+then stores the results in a JSON file.
+
+This function performs multiple steps: 
+- Extracting text from a PDF
+- Translating the text if necessary
+- Segmenting the text into chunks of different sizes
+- Writing the results to a JSON file.
+
+Args:
+    file_path (str): The path to the PDF file to process.
+    output_json (str): The path to the JSON file where the segments will be saved.</pre></div></div></div></li><li><span onclick="toggleVisibility('root_src_finetuning_mrebel_finetuning_py')" style="cursor: pointer; color: #0056b3;">📄 mrebel_finetuning.py</span><div id='root_src_finetuning_mrebel_finetuning_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>This script fine-tunes the mREBEL model using LoRA (Low-Rank Adaptation).
+It prepares the dataset, applies the PEFT (Parameter Efficient Fine-Tuning) approach with LoRA,
+and trains the model on the provided triplet data. The fine-tuned model and tokenizer are saved 
+after training.
+
+Usage:
+Run this script to fine-tune the mREBEL model with LoRA using the triplet data and save the trained model.</pre></div><div class='function'><h3>preprocess_data(example)</h3><div class='docstring'><pre>Preprocesses each example for model training by tokenizing the text 
+and formatting the triplet data with their types for the model.
+
+Args:
+    example (dict): The input data example containing 'text' and 'triplets'.
+    
+Returns:
+    dict: Tokenized inputs with the 'labels' formatted as triplets.</pre></div></div></div></li></ul></div></li><li><span onclick="toggleVisibility('root_src_pipeline')" style="cursor: pointer; color: #0056b3;">📁 pipeline</span><div id='root_src_pipeline' style='display: none; margin-left: 20px;'><ul><li><span onclick="toggleVisibility('root_src_pipeline_KB_generation_py')" style="cursor: pointer; color: #0056b3;">📄 KB_generation.py</span><div id='root_src_pipeline_KB_generation_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>This module provides functions to extract, process, and store knowledge from text data (Memgraph is used as graph database). 
+The core functionality revolves around identifying relationships (triplets) between entities, such as "subject-relation-object," within a given text. 
+It utilizes tokenization, model inference, and clustering techniques to process and organize the extracted knowledge.
+
+Key Functionality:
+- **extract_relations_from_model_output**: This function processes the model's output to extract triplets in the form of relationships between entities (subject, relation, and object). 
+It parses the output and identifies specific parts of speech and structure to form valid triplets.
+- **get_kb**: This function processes input text in spans, uses a pre-trained model to generate triplets, and stores them in a knowledge base (KB). The function also handles fine-tuning and tokenization.
+- **store_kb_clustering**: This function stores the extracted knowledge (triplets) into a graph database (Memgraph), ensuring they are organized based on clustering algorithms to identify relationships between different entities.
+- **clear_num and clear_str**: These helper functions are used to clean up text data, removing unnecessary characters, and normalizing numbers to ensure the extracted knowledge is formatted properly.
+
+This module is particularly useful for applications in natural language processing (NLP) and knowledge graph generation, where the goal is to automatically extract structured knowledge from unstructured text.</pre></div><div class='function'><h3>extract_relations_from_model_output(text)</h3><div class='docstring'><pre>Extracts relations in the form of triplets from the output of a model.
+
+Args:
+    text (str): The text to process to extract relations as triplets.
+
+Returns:
+    list: A list of dictionaries representing the triplets in the form of {'head', 'head_type', 'type', 'tail', 'tail_type'}.</pre></div></div><div class='function'><h3>get_kb(text, rdf_model_get_kb, tokenizer_get_kb, span_length, max_length, verbose, kb, pdf_name, use_finetuned_mrebel)</h3><div class='docstring'><pre>Extracts knowledge base (KB) from a given text by generating relations through model inference. It divides the text into spans and processes each span independently to extract relations.
+
+Args:
+    text (str): The text to process for relation extraction.
+    rdf_model_get_kb (model): The model used for relation extraction if fine-tuned MRebel is used.
+    tokenizer_get_kb (tokenizer): The tokenizer used to process the text if fine-tuned MRebel is used.
+    span_length (int): The length of each span to divide the text into.
+    max_length (int): The maximum length of input text for the model.
+    verbose (bool): Whether to print detailed processing steps.
+    kb (KB): The knowledge base object where extracted relations will be stored.
+    pdf_name (str): The name of the PDF file, if applicable.
+    use_finetuned_mrebel (bool): Whether to use a fine-tuned model.
+
+Returns:
+    KB: The knowledge base object populated with extracted relations.
+    float: The time taken to process the model inference.</pre></div></div><div class='function'><h3>clear_num(text)</h3><div class='docstring'><pre>Cleans a text by removing or standardizing numeric values.
+
+Args:
+    text (str): The input text to clean.
+
+Returns:
+    str: The cleaned text with numeric values processed.</pre></div></div><div class='function'><h3>clear_str(word)</h3><div class='docstring'><pre>Cleans a string by removing unwanted characters and handling repeated words.
+
+Args:
+    word (str): The string to clean.
+
+Returns:
+    str: The cleaned string with unwanted characters removed.</pre></div></div><div class='function'><h3>store_kb_clustering(kb, clusters, model)</h3><div class='docstring'><pre>Stores the knowledge base by associating each triplet with the nearest cluster and saving it to the database.
+
+Args:
+    kb (KnowledgeBase): The knowledge base object containing the triplets to store.
+    clusters (dict): The current clusters of triplets.
+    model (model): The model used to generate embeddings for clustering.
+
+Returns:
+    bool: True if the KB was successfully stored, False otherwise.
+    float: Time spent on merging the triplets.
+    dict: The updated clusters after merging.</pre></div></div><div class='function'><h3>fetch_all_relations()</h3><div class='docstring'><pre>Fetch all relations from the database and return them as a list of dictionaries.
+
+Returns:
+    list: A list of relations, where each relation is represented as a dictionary.</pre></div></div><div class='function'><h3>__init__(self)</h3><div class='docstring'><pre>No documentation provided.</pre></div></div><div class='function'><h3>add_relation(self, r)</h3><div class='docstring'><pre>Adds a relation to the knowledge base.</pre></div></div><div class='function'><h3>print(self)</h3><div class='docstring'><pre>Prints all the relations stored in the knowledge base.</pre></div></div></div></li><li><span onclick="toggleVisibility('root_src_pipeline_clustering_merge_py')" style="cursor: pointer; color: #0056b3;">📄 clustering_merge.py</span><div id='root_src_pipeline_clustering_merge_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>This module performs clustering and merging of triplets based on their similarity using the DBSCAN algorithm 
+and cosine similarity. It is used during data storage in Memgraph. It includes functionality for preprocessing, clustering, and inserting new triplets 
+into existing clusters.
+
+Key Functions:
+1. `is_good_triplet()`: Validates a triplet based on certain criteria (e.g., non-empty, non-redundant, not too long).
+2. `preprocess_triplets_list()`: Removes duplicates and filters out invalid triplets from the list.
+3. `initial_load()`: Performs initial clustering of triplets using DBSCAN.
+4. `merge_within_cluster()`: Merges similar triplets within a cluster based on cosine similarity.
+5. `merge_within_clusters()`: Merges triplets across all clusters.
+6. `insert_new_triplet()`: Inserts a new triplet into the appropriate cluster or creates a new cluster.
+7. `batch_merge_triplets()`: Processes and merges a batch of new triplets into existing clusters.
+
+Main Workflow:
+1. **Preprocessing**: Filters triplets by quality and removes duplicates.
+2. **Clustering**: Uses DBSCAN to cluster triplets based on their embeddings generated by a pre-trained model.
+3. **Merging**: Merges similar triplets within each cluster based on cosine similarity of their embeddings.
+4. **Insertion**: Inserts new triplets into the most appropriate existing cluster, or creates a new cluster if no suitable match is found.
+5. **Batch Processing**: Handles the insertion of a batch of new triplets and merges them accordingly.
+
+Usage:
+- `initial_load(triplets)`: Perform initial clustering of a list of triplets.
+- `batch_merge_triplets(new_triplets, clusters)`: Add new triplets to existing clusters, ensuring that similar ones are merged.</pre></div><div class='function'><h3>is_good_triplet(triplet)</h3><div class='docstring'><pre>Check if a triplet meets certain quality criteria.
+
+Args:
+    triplet (dict): A dictionary containing 'head', 'tail', and 'type' keys.
+
+Returns:
+    bool: True if the triplet is valid, False otherwise.</pre></div></div><div class='function'><h3>preprocess_triplets_list(triplets)</h3><div class='docstring'><pre>Preprocess a list of triplets by removing duplicates and filtering out invalid triplets.
+
+Args:
+    triplets (list): A list of triplets.
+
+Returns:
+    list: A list of filtered and unique triplets.</pre></div></div><div class='function'><h3>initial_load(triplets, model)</h3><div class='docstring'><pre>Perform initial clustering of triplets using DBSCAN.
+
+Args:
+    triplets (list): A list of triplets.
+    model (SentenceTransformer): The model used to encode triplets.
+
+Returns:
+    dict: A dictionary where keys are cluster labels and values are lists of triplets in that cluster.</pre></div></div><div class='function'><h3>merge_within_cluster(cluster_triplets, model, threshold)</h3><div class='docstring'><pre>Merge similar triplets within a cluster based on cosine similarity.
+
+Args:
+    cluster_triplets (list): A list of triplets in the same cluster.
+    model (SentenceTransformer): The model used to encode triplets.
+    threshold (float): The similarity threshold for merging.
+
+Returns:
+    list: A list of merged triplets.</pre></div></div><div class='function'><h3>merge_within_clusters(clusters, model)</h3><div class='docstring'><pre>Merge triplets within all clusters.
+
+Args:
+    clusters (dict): A dictionary of clusters.
+    model (SentenceTransformer): The model used to encode triplets.
+
+Returns:
+    dict: A dictionary of merged clusters.</pre></div></div><div class='function'><h3>insert_new_triplet(new_triplet, clusters, model, threshold)</h3><div class='docstring'><pre>Insert a new triplet into the appropriate cluster or create a new cluster if no similar triplet is found.
+
+Args:
+    new_triplet (dict): The new triplet to insert.
+    clusters (dict): The existing clusters.
+    model (SentenceTransformer): The model used to encode triplets.
+    threshold (float): The similarity threshold for merging.
+
+Returns:
+    tuple: A tuple containing the cluster ID and the similar triplet (if found).</pre></div></div><div class='function'><h3>batch_merge_triplets(new_triplets, clusters, model, threshold)</h3><div class='docstring'><pre>Insert a batch of new triplets into the clusters and log the results.
+
+Args:
+    new_triplets (list): A list of new triplets to insert.
+    clusters (dict): The existing clusters.
+    model (SentenceTransformer): The model used to encode triplets.
+    threshold (float): The similarity threshold for merging.
+
+Returns:
+    tuple: A tuple containing the log of similar triplets and the updated clusters.</pre></div></div></div></li><li><span onclick="toggleVisibility('root_src_pipeline_llama_py')" style="cursor: pointer; color: #0056b3;">📄 llama.py</span><div id='root_src_pipeline_llama_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>No module documentation provided.</pre></div><div class='function'><h3>count_unique_triplets_from_prompt_output(out)</h3><div class='docstring'><pre>Count the number of unique triplets from the output of a prompt.
+
+Args:
+    out (str): The output string from the prompt, which may contain JSON triplets.
+
+Returns:
+    int: The number of unique triplets.</pre></div></div><div class='function'><h3>count_unique_triplets_from_triplets_list(triplets)</h3><div class='docstring'><pre>Count the number of unique triplets from a list of triplets.
+
+Args:
+    triplets (list): A list of triplets.
+
+Returns:
+    int: The number of unique triplets.</pre></div></div><div class='function'><h3>extract_triplets(text)</h3><div class='docstring'><pre>Extract triplets from the given text using the Groq API.
+
+Args:
+    text (str): The input text from which to extract triplets.
+
+Returns:
+    list: A list of triplets in JSON format.</pre></div></div><div class='function'><h3>split_article_into_batches(article, n_batches)</h3><div class='docstring'><pre>Split the article into `n_batches` equal parts.
+
+Args:
+    article (str): The input article text.
+    n_batches (int): The number of batches to split the article into.
+
+Returns:
+    list: A list of article batches.</pre></div></div><div class='function'><h3>merge_triplets(triplets)</h3><div class='docstring'><pre>Merge similar triplets using the Groq API.
+
+Args:
+    triplets (list): A list of triplets to merge.
+
+Returns:
+    list: A list of merged triplets in JSON format.</pre></div></div></div></li><li><span onclick="toggleVisibility('root_src_pipeline_main_py')" style="cursor: pointer; color: #0056b3;">📄 main.py</span><div id='root_src_pipeline_main_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>Main module for Knowledge Graph Generation.
+
+This function serves as the entry point for generating a knowledge graph from uploaded PDF files.
+It orchestrates the entire process by performing text extraction, translation, semantic segmentation,
+knowledge base (KB) construction, triplet lemmatization, and pre-merge operations. The function also
+integrates clustering and storing of the extracted knowledge into a graph database. 
+
+Key Steps:
+1. **Loading Pre-trained Models**: Loads the required pre-trained models for text processing and fine-tuning, such as the BGE small and MRebel models.
+2. **File Upload**: Allows users to upload a directory of PDF files for processing. 
+3. **Text Extraction**: For each uploaded PDF, text is extracted using the `get_text` function.
+4. **Language Detection and Translation**: The function detects the language of the extracted text and translates it to English if needed using the `detect_and_translate` function.
+5. **Semantic Segmentation**: The text is divided into semantic segments using the `segment_text` function to facilitate better knowledge extraction.
+6. **Knowledge Base (KB) Construction**: The text segments are processed in batches, generating triplets (subject, relation, object) using the `get_kb` function. Each batch is merged with the existing knowledge base, and relationships are stored.
+7. **Lemmatization**: Triplets are lemmatized to ensure that entity names are normalized, which is handled by the `lemmatize_triples` function.
+8. **Pre-merge and Clustering**: The extracted triplets are merged and stored in a graph database using the `merge_with_finetuned_model` function and `store_kb_clustering` for clustering triplets and saving them into the database.
+9. **Performance Tracking**: The execution time for each major step (translation, segmentation, model inference, etc.) is calculated and displayed for user feedback.
+
+This function is designed to efficiently generate knowledge graphs from large sets of unstructured text, providing tools for natural language processing, clustering, and storing structured information in a graph database.</pre></div><div class='function'><h3>main()</h3><div class='docstring'><pre>Main function for Knowledge Graph Generation.
+
+This function allows the user to upload a directory containing PDF files,
+extract text from the files, and generate a knowledge graph based on the extracted text.
+The generated graph is then stored and the execution time is displayed.</pre></div></div></div></li><li><span onclick="toggleVisibility('root_src_pipeline_params_py')" style="cursor: pointer; color: #0056b3;">📄 params.py</span><div id='root_src_pipeline_params_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>This script sets up and configures multiple NLP models and tools to process text data, including sentence embeddings, sequence-to-sequence models, and semantic segmentation. 
+The setup involves using both the Hugging Face `transformers` library for pre-trained sequence models and the `sentence-transformers` library for generating sentence embeddings. 
+Additionally, the `spaCy` library is used for tokenization and natural language processing (NLP) tasks.
+
+Key Functionalities:
+
+1. **Device Setup for Computation (CUDA/MPS/CPU)**:
+    - The script automatically selects the appropriate computation device for model execution (GPU, MPS, or CPU) based on the available hardware. It checks for CUDA (for NVIDIA GPUs), MPS (for Apple M1/M2 chips), or defaults to the CPU if no compatible device is found.
+
+2. **Model and Tokenizer Initialization**:
+    - **Sentence Transformer (`merge_model`)**:
+        - The `sentence-transformers/all-MiniLM-L6-v2` model is loaded to generate high-quality sentence embeddings. This model is used for tasks like text similarity, clustering, or any task requiring semantic representation of sentences.
+    - **Translation Model (`rdf_model`)**:
+        - The `Babelscape/mrebel-large` model is loaded for sequence-to-sequence tasks like machine translation. The model and tokenizer are prepared to handle text in English or other languages (with `src_lang` and `tgt_lang` parameters).
+    - **Tokenizer for Semantic Segmentation (`tokenizer_semantic_seg`)**:
+        - The `sentence-transformers/all-MiniLM-L6-v2` tokenizer is also loaded here, likely used for preparing data for semantic segmentation or sentence-level classification tasks.
+
+3. **spaCy Setup**:
+    - The script downloads and loads the `en_core_web_sm` spaCy model, which is used for tokenization, part-of-speech tagging, and other NLP preprocessing tasks on English text.</pre></div></div></li><li><span onclick="toggleVisibility('root_src_pipeline_pre_merge_py')" style="cursor: pointer; color: #0056b3;">📄 pre_merge.py</span><div id='root_src_pipeline_pre_merge_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>This module defines a neural network-based model and functions for processing and merging triplets in a knowledge graph. It's a premerge module, before storing triplets in Memgraph.
+The primary model, `TripletClassifier`, uses a pretrained transformer-based model to encode triplet information and classify their relevance. 
+Additionally, there are utility functions for lemmatizing triplet values and merging redundant triplets based on their similarity.
+
+Key components:
+1. **TripletClassifier**: A PyTorch-based classifier that fine-tunes a pretrained transformer model to classify triplets and identify meaningful relationships. It passes the encoded triplets through multiple dense layers before applying a final classification layer.
+2. **lemmatize_triples**: A utility function that lemmatizes the `head`, `type`, and `tail` values of each triplet using the WordNet Lemmatizer.
+3. **merge_with_finetuned_model**: This function merges redundant triplets based on their semantic similarity by leveraging a fine-tuned model to detect similarities between triplets.
+
+This module is ideal for knowledge graph creation (premerge module) and optimization tasks, such as filtering out redundant information and making the data more meaningful by processing the triplets through advanced machine learning techniques.</pre></div><div class='function'><h3>lemmatize_triples(triples)</h3><div class='docstring'><pre>Lemmatize the 'head', 'type', and 'tail' elements of each triplet.
+
+Args:
+- triples : list of dicts : Each dictionary represents a triplet with 'head', 'type', and 'tail' keys.
+
+Returns:
+- list of dicts : The lemmatized triplets.</pre></div></div><div class='function'><h3>merge_with_finetuned_model(triples, model, model_name)</h3><div class='docstring'><pre>Merge redundant triplets based on their semantic similarity using a fine-tuned model.
+
+Args:
+- triples : list of dicts : Each dictionary represents a triplet to be compared.
+- model : nn.Module : The model used to compute semantic similarity.
+- model_name : str, optional : The model name to select the corresponding tokenizer.
+
+Returns:
+- list of dicts : The merged triplets, excluding redundant ones.</pre></div></div><div class='function'><h3>__init__(self, pretrained_model_name)</h3><div class='docstring'><pre>A neural network model that classifies triplets by encoding them with a pretrained transformer model.
+The model consists of a transformer encoder followed by several dense layers and a final classification layer.
+
+Args:
+- pretrained_model_name : str : The name of the pretrained model to be used for encoding the triplets.</pre></div></div><div class='function'><h3>forward(self, input_ids, attention_mask, token_type_ids)</h3><div class='docstring'><pre>Forward pass through the model.
+
+Args:
+- input_ids : torch.Tensor : Tensor of token IDs.
+- attention_mask : torch.Tensor : Tensor of attention masks.
+- token_type_ids : torch.Tensor, optional : Tensor of token type IDs.
+
+Returns:
+- logits : torch.Tensor : The output classification logits.</pre></div></div><div class='function'><h3>compute_similarity(triplet1, triplet2)</h3><div class='docstring'><pre>Compute the semantic similarity between two triplets using the fine-tuned model.
+
+Args:
+- triplet1 : dict : The first triplet.
+- triplet2 : dict : The second triplet.
+
+Returns:
+- score : float : Similarity score between 0 and 1.</pre></div></div></div></li><li><span onclick="toggleVisibility('root_src_pipeline_semantic_segmentation_py')" style="cursor: pointer; color: #0056b3;">📄 semantic_segmentation.py</span><div id='root_src_pipeline_semantic_segmentation_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>This module provides functions to segment a given text into smaller, more coherent parts based on semantic clustering. 
+The process involves checking the quality of sentences, splitting the text into valid sentences, encoding them into embeddings, and applying clustering algorithms to group similar sentences. 
+The segmentation process ensures that large texts are divided into smaller, more manageable chunks.
+
+Key components:
+1. **is_good_sentence**: A function to evaluate whether a sentence meets certain quality criteria such as length and the number of numbers it contains.
+2. **split_into_sentences**: A function to split a given text into individual sentences, filtering out those that do not meet the quality criteria.
+3. **segment_text**: The main function that segments the text into meaningful clusters using HDBSCAN (a density-based clustering algorithm) and sentence embeddings.
+
+This module is useful for text preprocessing, particularly when dealing with large chunks of text that need to be divided into meaningful segments for further processing or analysis.</pre></div><div class='function'><h3>is_good_sentence(sentence)</h3><div class='docstring'><pre>Checks if a sentence meets certain quality criteria to be considered valid.
+- The sentence must be longer than 15 characters.
+- The sentence should not contain too many numbers (more than 5 by default).
+
+Args:
+- sentence : str : The sentence to evaluate.
+
+Returns:
+- bool : True if the sentence is valid, False otherwise.</pre></div></div><div class='function'><h3>split_into_sentences(text)</h3><div class='docstring'><pre>Splits a given text into individual sentences, filtering out those that do not meet the quality criteria.
+
+Args:
+- text : str : The input text to split into sentences.
+
+Returns:
+- list : A list of valid sentences (those that meet the criteria).</pre></div></div><div class='function'><h3>segment_text(text, min_cluster_size)</h3><div class='docstring'><pre>Segments the input text into meaningful segments based on sentence embeddings and clustering.
+- First, the text is split into individual sentences.
+- Then, the sentences are encoded into embeddings.
+- Finally, a clustering algorithm (HDBSCAN) is applied to group semantically similar sentences together.
+
+Args:
+- text : str : The text to segment into clusters.
+- min_cluster_size : int, optional : The minimum number of sentences required for a cluster (default is 2).
+
+Returns:
+- list : A list of text segments (clusters of sentences).</pre></div></div></div></li><li><span onclick="toggleVisibility('root_src_pipeline_text_selection_py')" style="cursor: pointer; color: #0056b3;">📄 text_selection.py</span><div id='root_src_pipeline_text_selection_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>This module provides functionality to extract text from PDF files. 
+It uses the `PyPDF2` library to read and parse PDF files, allowing text extraction from each page.</pre></div><div class='function'><h3>get_text(file)</h3><div class='docstring'><pre>Extracts text from a PDF file.
+
+Args:
+    file (str or UploadedFile): The path to a PDF file or an uploaded file.
+
+Returns:
+    str: The extracted text from the PDF file.</pre></div></div></div></li><li><span onclick="toggleVisibility('root_src_pipeline_translation_py')" style="cursor: pointer; color: #0056b3;">📄 translation.py</span><div id='root_src_pipeline_translation_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>This module provides a function to detect the language of a given text and translate it to English if necessary. 
+It utilizes the `langdetect` library to detect the language and the `deep_translator` library for translation. 
+The function ensures that long texts are split into smaller chunks to avoid errors during translation.</pre></div><div class='function'><h3>detect_and_translate(text, max_length)</h3><div class='docstring'><pre>Detects the language of the input text and translates it to English if it's not already in English.
+If the text exceeds the specified `max_length`, it is split into smaller chunks to avoid errors during translation.
+
+Args:
+    text (str): The text to be detected and translated.
+    max_length (int, optional): The maximum length of the text chunk to be translated at a time. Default is 4000 characters.
+
+Returns:
+    str: The translated text in English if the original text is not in English, or the original text if it is already in English.
+    
+If an error occurs during the detection or translation process, the original text is returned.</pre></div></div></div></li></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app')" style="cursor: pointer; color: #0056b3;">📁 web-app</span><div id='root_src_web-app' style='display: none; margin-left: 20px;'><ul><li><span onclick="toggleVisibility('root_src_web-app_app_py')" style="cursor: pointer; color: #0056b3;">📄 app.py</span><div id='root_src_web-app_app_py' style='display: none; margin-left: 20px;'><div class='module-docstring'><strong>Module Documentation:</strong><pre>No module documentation provided.</pre></div><div class='function'><h3>load_data_from_db()</h3><div class='docstring'><pre>Load data from the database.
+
+Returns:
+    list: A list of dictionaries representing the relations in the database.
+          Each dictionary contains the following keys:
+          - 'head': The name of the head node.
+          - 'type_head': The type of the head node.
+          - 'tail': The name of the tail node.
+          - 'type_tail': The type of the tail node.
+          - 'type': The type of the relation.
+          - 'fname': The file name associated with the relation.</pre></div></div><div class='function'><h3>load_data_from_db_with_node_and_radius(node_name, radius)</h3><div class='docstring'><pre>Load data from the database based on a given node name and radius.
+
+Args:
+    node_name (str): The name of the node.
+    radius (int): The maximum range of the radius.
+
+Returns:
+    list: A list of dictionaries representing the relationships and nodes connected to the given node.
+          Each dictionary contains the following keys:
+          - 'head': The name of the head node.
+          - 'type_head': The type of the head node.
+          - 'tail': The name of the tail node.
+          - 'type_tail': The type of the tail node.
+          - 'type': The type of the relationship.
+          - 'fname': The filename associated with the head node.</pre></div></div><div class='function'><h3>construct_graph_partialy()</h3><div class='docstring'><pre>Constructs a graph partially based on the given input data.
+
+This function takes input data in JSON format and constructs a graph using NetworkX library.
+It extracts information from the RDF triples and adds nodes and edges to the graph.
+The graph is then visualized using the Network library and saved as an HTML file.
+
+Returns:
+    A Flask response object containing the generated graph HTML file.</pre></div></div><div class='function'><h3>clean_string(value)</h3><div class='docstring'><pre>Cleans a string by replacing %20 and %C3%A9 with spaces,
+removing special characters and accents, replacing underscores with spaces,
+and taking the last element after splitting by '/'.
+
+Args:
+    value (str): The string to be cleaned.
+
+Returns:
+    str: The cleaned string.</pre></div></div><div class='function'><h3>index()</h3><div class='docstring'><pre>No documentation provided.</pre></div></div><div class='function'><h3>wikipedia_details()</h3><div class='docstring'><pre>Retrieves internet details for a given node.
+
+Returns:
+    dict: A dictionary containing the HTML content.</pre></div></div><div class='function'><h3>get_wikipedia(node, node_type)</h3><div class='docstring'><pre>Retrieves information from Wikipedia about a given node.
+
+Args:
+    node (str): The name of the node.
+    node_type (str): The type of the node.
+
+Returns:
+    tuple: A tuple containing the HTML content and a flag indicating if the information was found on Wikipedia.</pre></div></div><div class='function'><h3>get_google(node, node_type, wiki, html)</h3><div class='docstring'><pre>Retrieves the HTML code of the Google search results for a given node and node type.
+
+Args:
+    node (str): The node to search for.
+    node_type (str): The type of the node.
+    wiki (int): Flag indicating whether a Wikipedia page was found for the node.
+    html (str): The existing HTML code.
+
+Returns:
+    str: The updated HTML code with the Google search results.</pre></div></div><div class='function'><h3>get_news(node, node_type)</h3><div class='docstring'><pre>Get news related to a given node and node type.
+
+Args:
+    node (str): The node to search for news.
+    node_type (str): The type of the node.
+
+Returns:
+    str: HTML code containing the news summary.</pre></div></div><div class='function'><h3>construct_graph()</h3><div class='docstring'><pre>Constructs a graph based on the RDF triples extracted from the database.
+The graph is visualized using the NetworkX library and saved as an HTML file.
+
+Returns:
+    The graph HTML file as a Flask response.</pre></div></div><div class='function'><h3>change_name()</h3><div class='docstring'><pre>Change the name of a node in the graph database.
+
+This function receives a JSON object containing the old name and the new name of the node.
+It connects to the graph database, executes two queries to update the node's name and returns "ok" if successful.
+
+Returns:
+    str: A string indicating the success of the operation ("ok").</pre></div></div><div class='function'><h3>delete_node(node_name, node_type)</h3><div class='docstring'><pre>Deletes a node and its related relationships from the database.
+
+Args:
+    node_name (str): The name of the node to be deleted.
+    node_type (str): The type of the node to be deleted.
+
+Returns:
+    str: A message indicating the success of the deletion.</pre></div></div><div class='function'><h3>delete_relation()</h3><div class='docstring'><pre>Deletes a relation between two nodes in the graph database.
+
+The relation is specified by the head, tail, head_type, and tail_type parameters.
+
+Args:
+    head (str): The name of the head node.
+    tail (str): The name of the tail node.
+    head_type (str): The type of the head node.
+    tail_type (str): The type of the tail node.
+
+Returns:
+    str: A message indicating the success of the deletion.</pre></div></div><div class='function'><h3>clear_num(text)</h3><div class='docstring'><pre>Removes numbers from the given text and returns the modified text.
+
+Parameters:
+text (str): The input text.
+
+Returns:
+str: The modified text with numbers removed.</pre></div></div><div class='function'><h3>clear_str(word)</h3><div class='docstring'><pre>Clear the given string by removing certain characters, removing repeated words, removing numbers at the end of words,
+and removing double spaces.
+
+Args:
+    word (str): The string to be cleared.
+
+Returns:
+    str: The cleared string.</pre></div></div><div class='function'><h3>create_relation()</h3><div class='docstring'><pre>Creates a relation between two nodes in the database memgraph.
+
+The function takes a JSON object as input, containing the following fields:
+- head: the name of the head node
+- head_type: the type of the head node
+- fname1: the filename associated with the head node
+- tail: the name of the tail node
+- tail_type: the type of the tail node
+- fname2: the filename associated with the tail node
+- relation: the type of relation between the head and tail nodes
+
+The function performs the following steps:
+1. Cleans the input strings by removing any unwanted characters.
+2. Checks if the head and tail nodes already exist in the database. If not, adds them.
+3. Checks if the relation between the head and tail nodes already exists in the database. If not, adds it.
+
+If any of the input fields are empty or if the head and tail nodes are the same or if the head and tail nodes are the same as the relation type,
+an error message is printed.
+
+Note: This function assumes the existence of a GraphDatabase driver and a session for executing Cypher queries.</pre></div></div><div class='function'><h3>create_color_from_string(string, group_by, node_type)</h3><div class='docstring'><pre>Create a color based on the given string.
+
+Parameters:
+string (str): The input string to create the color from.
+group_by (str, optional): The grouping criteria for color creation. Defaults to "File".
+node_type (str, optional): The node type for color creation. Defaults to an empty string.
+
+Returns:
+str: The generated color in hexadecimal format.</pre></div></div><div class='function'><h3>create_graph_from_db()</h3><div class='docstring'><pre>Creates a graph from the relations in the database and saves it as an HTML file.
+
+Returns:
+    The HTML file as a response object.</pre></div></div><div class='function'><h3>get_entities()</h3><div class='docstring'><pre>No documentation provided.</pre></div></div><div class='function'><h3>clear_graph()</h3><div class='docstring'><pre>Clears all nodes and relationships in the Memgraph database.
+
+Returns:
+    str: A success or failure message.</pre></div></div></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets')" style="cursor: pointer; color: #0056b3;">📁 assets</span><div id='root_src_web-app_assets' style='display: none; margin-left: 20px;'><ul><li><span onclick="toggleVisibility('root_src_web-app_assets_css')" style="cursor: pointer; color: #0056b3;">📁 css</span><div id='root_src_web-app_assets_css' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_img')" style="cursor: pointer; color: #0056b3;">📁 img</span><div id='root_src_web-app_assets_img' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_js')" style="cursor: pointer; color: #0056b3;">📁 js</span><div id='root_src_web-app_assets_js' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor')" style="cursor: pointer; color: #0056b3;">📁 vendor</span><div id='root_src_web-app_assets_vendor' style='display: none; margin-left: 20px;'><ul><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_aos')" style="cursor: pointer; color: #0056b3;">📁 aos</span><div id='root_src_web-app_assets_vendor_aos' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_bootstrap')" style="cursor: pointer; color: #0056b3;">📁 bootstrap</span><div id='root_src_web-app_assets_vendor_bootstrap' style='display: none; margin-left: 20px;'><ul><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_bootstrap_css')" style="cursor: pointer; color: #0056b3;">📁 css</span><div id='root_src_web-app_assets_vendor_bootstrap_css' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_bootstrap_js')" style="cursor: pointer; color: #0056b3;">📁 js</span><div id='root_src_web-app_assets_vendor_bootstrap_js' style='display: none; margin-left: 20px;'><ul></ul></div></li></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_bootstrap-icons')" style="cursor: pointer; color: #0056b3;">📁 bootstrap-icons</span><div id='root_src_web-app_assets_vendor_bootstrap-icons' style='display: none; margin-left: 20px;'><ul><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_bootstrap-icons_fonts')" style="cursor: pointer; color: #0056b3;">📁 fonts</span><div id='root_src_web-app_assets_vendor_bootstrap-icons_fonts' style='display: none; margin-left: 20px;'><ul></ul></div></li></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_boxicons')" style="cursor: pointer; color: #0056b3;">📁 boxicons</span><div id='root_src_web-app_assets_vendor_boxicons' style='display: none; margin-left: 20px;'><ul><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_boxicons_css')" style="cursor: pointer; color: #0056b3;">📁 css</span><div id='root_src_web-app_assets_vendor_boxicons_css' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_boxicons_fonts')" style="cursor: pointer; color: #0056b3;">📁 fonts</span><div id='root_src_web-app_assets_vendor_boxicons_fonts' style='display: none; margin-left: 20px;'><ul></ul></div></li></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_glightbox')" style="cursor: pointer; color: #0056b3;">📁 glightbox</span><div id='root_src_web-app_assets_vendor_glightbox' style='display: none; margin-left: 20px;'><ul><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_glightbox_css')" style="cursor: pointer; color: #0056b3;">📁 css</span><div id='root_src_web-app_assets_vendor_glightbox_css' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_glightbox_js')" style="cursor: pointer; color: #0056b3;">📁 js</span><div id='root_src_web-app_assets_vendor_glightbox_js' style='display: none; margin-left: 20px;'><ul></ul></div></li></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_isotope-layout')" style="cursor: pointer; color: #0056b3;">📁 isotope-layout</span><div id='root_src_web-app_assets_vendor_isotope-layout' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_php-email-form')" style="cursor: pointer; color: #0056b3;">📁 php-email-form</span><div id='root_src_web-app_assets_vendor_php-email-form' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_purecounter')" style="cursor: pointer; color: #0056b3;">📁 purecounter</span><div id='root_src_web-app_assets_vendor_purecounter' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_swiper')" style="cursor: pointer; color: #0056b3;">📁 swiper</span><div id='root_src_web-app_assets_vendor_swiper' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_typed_js')" style="cursor: pointer; color: #0056b3;">📁 typed.js</span><div id='root_src_web-app_assets_vendor_typed_js' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_assets_vendor_waypoints')" style="cursor: pointer; color: #0056b3;">📁 waypoints</span><div id='root_src_web-app_assets_vendor_waypoints' style='display: none; margin-left: 20px;'><ul></ul></div></li></ul></div></li></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_forms')" style="cursor: pointer; color: #0056b3;">📁 forms</span><div id='root_src_web-app_forms' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_lib')" style="cursor: pointer; color: #0056b3;">📁 lib</span><div id='root_src_web-app_lib' style='display: none; margin-left: 20px;'><ul><li><span onclick="toggleVisibility('root_src_web-app_lib_bindings')" style="cursor: pointer; color: #0056b3;">📁 bindings</span><div id='root_src_web-app_lib_bindings' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_lib_tom-select')" style="cursor: pointer; color: #0056b3;">📁 tom-select</span><div id='root_src_web-app_lib_tom-select' style='display: none; margin-left: 20px;'><ul></ul></div></li><li><span onclick="toggleVisibility('root_src_web-app_lib_vis-9_1_2')" style="cursor: pointer; color: #0056b3;">📁 vis-9.1.2</span><div id='root_src_web-app_lib_vis-9_1_2' style='display: none; margin-left: 20px;'><ul></ul></div></li></ul></div></li></ul></div></li></ul></div></li></ul>
+    </body>
+    </html>
+    

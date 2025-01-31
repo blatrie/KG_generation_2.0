@@ -1,0 +1,1230 @@
+[
+    {
+        "text": "Theory of emotions and economic analysis:\na review1\nEmmanuel Petit*\nSince Elster’s seminal review [1998], an abundant literature has revealed the growing interest of economists in the question of emotions.",
+        "triplets": [
+            {
+                "head": "Elster",
+                "head_type": "person",
+                "type": "published",
+                "tail": "seminal review",
+                "tail_type": "concept"
+            },
+            {
+                "head": "economists",
+                "head_type": "organisation",
+                "type": "interested in",
+                "tail": "question of emotions",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "The introduction of emotion into economic analysis has been carried out essentially from a psychological and neurological conception of emotion. Developing a richer and more complete economy of emotions makes it necessary to also draw on other approaches to emotion, notably from sociology, anthropology, history and philosophy.",
+        "triplets": [
+            {
+                "head": "economic analysis",
+                "head_type": "concept",
+                "type": "involves",
+                "tail": "emotion",
+                "tail_type": "concept"
+            },
+            {
+                "head": "emotion",
+                "head_type": "concept",
+                "type": "drawing on",
+                "tail": "psychological approach",
+                "tail_type": "concept"
+            },
+            {
+                "head": "emotion",
+                "head_type": "concept",
+                "type": "drawing on",
+                "tail": "neurological approach",
+                "tail_type": "concept"
+            },
+            {
+                "head": "economy of emotions",
+                "head_type": "concept",
+                "type": "requires",
+                "tail": "sociology",
+                "tail_type": "concept"
+            },
+            {
+                "head": "economy of emotions",
+                "head_type": "concept",
+                "type": "requires",
+                "tail": "anthropology",
+                "tail_type": "concept"
+            },
+            {
+                "head": "economy of emotions",
+                "head_type": "concept",
+                "type": "requires",
+                "tail": "history",
+                "tail_type": "concept"
+            },
+            {
+                "head": "economy of emotions",
+                "head_type": "concept",
+                "type": "requires",
+                "tail": "philosophy",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "The aim of this article is to contribute to enriching the work of economists in this field by proposing a multidisciplinary state of the art that synthesizes the knowledge derived from the theory of emotions. The first step is to identify the major stages in the construction of this theory and to extract the essential properties of emotions. The aim is then to illustrate how this knowledge has been mobilized in economic analysis, taking into account the diversity of approaches characteristic of the discipline.",
+        "triplets": [
+            {
+                "head": "theory of emotions",
+                "head_type": "concept",
+                "type": "derived from",
+                "tail": "economists",
+                "tail_type": "person"
+            },
+            {
+                "head": "economic analysis",
+                "head_type": "concept",
+                "type": "mobilized",
+                "tail": "knowledge of emotions",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "[1998], an abundant literature has revealed the growing interest of economists in the question of emotions.",
+        "triplets": [
+            {
+                "head": "economists",
+                "head_type": "person",
+                "type": "are interested in",
+                "tail": "emotions",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "Secondly, we show how this knowledge has been used in economic analysis, taking into account the diversity of approaches characteristic of the discipline. Emotion theory – Behavioural Economics – Economic sociology – Institutions – Fear\nJEL classification: C70, C90, A12, Z13\n1.",
+        "triplets": [
+            {
+                "head": "Economic analysis",
+                "head_type": "concept",
+                "type": "uses",
+                "tail": "Emotion theory",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Economic analysis",
+                "head_type": "concept",
+                "type": "relates to",
+                "tail": "Behavioural Economics",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Economic analysis",
+                "head_type": "concept",
+                "type": "involves",
+                "tail": "Economic sociology",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Economic analysis",
+                "head_type": "concept",
+                "type": "considers",
+                "tail": "Institutions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Economic analysis",
+                "head_type": "concept",
+                "type": "examines",
+                "tail": "Fear",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "My sincere gratitude to Anna Tcherkassof for her careful proofreading of section 2 (“the science of emotions”). *Univ. Bordeaux, CNRS, BSE, UMR 6060, F-33600 Pessac, France.",
+        "triplets": [
+            {
+                "head": "Univ. Bordeaux",
+                "head_type": "organisation",
+                "type": "located in",
+                "tail": "F-33600 Pessac, France",
+                "tail_type": "place"
+            },
+            {
+                "head": "Univ. Bordeaux",
+                "head_type": "organisation",
+                "type": "has affiliation",
+                "tail": "CNRS",
+                "tail_type": "organisation"
+            },
+            {
+                "head": "Univ. Bordeaux",
+                "head_type": "organisation",
+                "type": "has affiliation",
+                "tail": "BSE",
+                "tail_type": "organisation"
+            }
+        ]
+    },
+    {
+        "text": "Email:\nemmanuel.petit@u-bordeaux.fr ; website: https://gretha.cnrs.fr/emmanuel-petit/\nBILAN/ESSAI\nREP 132 (2) March-April 20221. Introduction\nSince Elster’s seminal review",
+        "triplets": []
+    },
+    {
+        "text": "Introduction\nSince Elster’s seminal review [1998], an abundant literature has\nrevealed the growing interest of economists in the question of emotions (Loewenstein [2000], Camerer et al.",
+        "triplets": []
+    },
+    {
+        "text": "[2005], Rick and Loewenstein [2008],\nLerner et al. [2015], Petit [2009, 2015], Dunning et al.",
+        "triplets": []
+    },
+    {
+        "text": "[2015], Petit [2009, 2015], Dunning et al. [2017], Gomes [2017],\nWinter [2017], Wälde and Moors [2017], Tkach [2019], Rolls [2019]).",
+        "triplets": []
+    },
+    {
+        "text": "[2017], Gomes [2017],\nWinter [2017], Wälde and Moors [2017], Tkach [2019], Rolls [2019]).",
+        "triplets": []
+    },
+    {
+        "text": "As in many academic disciplines, economists have accompanied what historians have called the “emotional turn” (Plamper [2010]), an extraordinary craze born in the mid-1990s for the study of emotions.",
+        "triplets": [
+            {
+                "head": "economists",
+                "head_type": "person",
+                "type": "accompanied",
+                "tail": "historians",
+                "tail_type": "person"
+            },
+            {
+                "head": "emotional turn",
+                "head_type": "concept",
+                "type": "called",
+                "tail": "historians",
+                "tail_type": "person"
+            },
+            {
+                "head": "study of emotions",
+                "head_type": "concept",
+                "type": "born",
+                "tail": "mid-1990s",
+                "tail_type": "date"
+            }
+        ]
+    },
+    {
+        "text": "In economics, emotions are today mainly mobilized and studied in an experimental framework and then introduced into behavioral models in order to improve existing models of human behavior. The “economics of emotions” (Petit [2015]) has made it possible to “revisit” the model of perfect rationality (Elster [1996], Kahneman",
+        "triplets": [
+            {
+                "head": "model of perfect rationality",
+                "head_type": "concept",
+                "type": "revisited by",
+                "tail": "economics of emotions",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "[2012], Rolls [2019]), has introduced a plurality of social and/or moral motivations (Jourdheuil and Petit [2015]) and has led to new methods of intervention by public authorities such asand emotional paternalism (Schultz et al. [2007]). The introduction of emotion into economic analysis was carried out\nessentially from a psychological and neurological conception of emotion.",
+        "triplets": []
+    },
+    {
+        "text": "[2007]). The introduction of emotion into economic analysis was carried out\nessentially from a psychological and neurological conception of emotion. As suggested by Elster [1998], this conception made it possible (i) to disturb emotion in categories that could be easily mobilized by economists, (ii) to give it a functional (multi-component) definition particularly adapted to the methodological individualism practiced in experimental and behavioral economics and above all (iii) to provide precise and effective instruments for measuring and inducing emotions.",
+        "triplets": [
+            {
+                "head": "experimental and behavioral economics",
+                "head_type": "concept",
+                "type": "practiced",
+                "tail": "methodological individualism",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "The introduction of emotion into economic analysis was carried out\nessentially from a psychological and neurological conception of emotion.",
+        "triplets": [
+            {
+                "head": "emotion",
+                "head_type": "concept",
+                "type": "was introduced into",
+                "tail": "economic analysis",
+                "tail_type": "concept"
+            },
+            {
+                "head": "economic analysis",
+                "head_type": "concept",
+                "type": "was carried out from",
+                "tail": "psychological conception",
+                "tail_type": "concept"
+            },
+            {
+                "head": "economic analysis",
+                "head_type": "concept",
+                "type": "was carried out from",
+                "tail": "neurological conception",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "As suggested by Elster [1998], this conception made it possible (i) to disturb emotion in categories that could be easily mobilized by economists, (ii) to give it a functional (multi-component) definition particularly adapted to the methodological individualism practiced in experimental and behavioral economics and above all (iii) to provide precise and effective instruments for measuring and inducing emotions.",
+        "triplets": [
+            {
+                "head": "economists",
+                "head_type": "organisation",
+                "type": "mobilized by",
+                "tail": "emotion",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "The theory of emotions that was gradually established during the 20th century, however, covers a much broader field of analysis than that taken into account by psychology and neuroscience. Other disciplines – such as sociology, philosophy, anthropology, history and literature – have also constructed an elaborate and fruitful theory of emotions. Recent work on the theory of emotions also shows that there is now a convergence between approaches that were once opposed and considered incompatible (biology vs. anthropology, psychology vs. sociology).",
+        "triplets": [
+            {
+                "head": "20th century",
+                "head_type": "date",
+                "type": "established",
+                "tail": "theory of emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "psychology",
+                "head_type": "concept",
+                "type": "covers",
+                "tail": "field of analysis",
+                "tail_type": "concept"
+            },
+            {
+                "head": "neuroscience",
+                "head_type": "concept",
+                "type": "covers",
+                "tail": "field of analysis",
+                "tail_type": "concept"
+            },
+            {
+                "head": "sociology",
+                "head_type": "concept",
+                "type": "constructed",
+                "tail": "theory of emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "philosophy",
+                "head_type": "concept",
+                "type": "constructed",
+                "tail": "theory of emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "anthropology",
+                "head_type": "concept",
+                "type": "constructed",
+                "tail": "theory of emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "history",
+                "head_type": "concept",
+                "type": "constructed",
+                "tail": "theory of emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "literature",
+                "head_type": "concept",
+                "type": "constructed",
+                "tail": "theory of emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "biology",
+                "head_type": "concept",
+                "type": "vs.",
+                "tail": "anthropology",
+                "tail_type": "concept"
+            },
+            {
+                "head": "psychology",
+                "head_type": "concept",
+                "type": "vs.",
+                "tail": "sociology",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "Recent work on the theory of emotions also shows that there is now a convergence between approaches that were once opposed and considered incompatible (biology vs. anthropology, psychology vs. sociology).",
+        "triplets": [
+            {
+                "head": "biology",
+                "head_type": "concept",
+                "type": "vs",
+                "tail": "anthropology",
+                "tail_type": "concept"
+            },
+            {
+                "head": "psychology",
+                "head_type": "concept",
+                "type": "vs",
+                "tail": "sociology",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "Developing a richer and more complete “economy of emotions” makes it necessary to know and draw on the different approaches to emotion, without limiting ourselves to the sole conception of psychology and/or neurology.",
+        "triplets": [
+            {
+                "head": "approaches to emotion",
+                "head_type": "concept",
+                "type": "include",
+                "tail": "psychology",
+                "tail_type": "concept"
+            },
+            {
+                "head": "approaches to emotion",
+                "head_type": "concept",
+                "type": "include",
+                "tail": "neurology",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "The aim of this review is therefore to contribute to enriching the work of economists in this field by proposing a multidisciplinary state of the art that synthesizes the knowledge derived from the theory of emotions.",
+        "triplets": []
+    },
+    {
+        "text": "First of all, it is a question of identifying the main stages in the construction of this theory and extracting the essential properties of emotions (2).",
+        "triplets": []
+    },
+    {
+        "text": "The aim then is to illustrate – as extensively as possible but without claiming to be exhaustive – how this knowledge has been used in economic analysis, taking into account the diversity of approaches characteristic of the discipline (3). We will conclude this review of the literature on the theory and economics of emotions by discussing and identifying the most fruitful and promising areas of research for economists (4).",
+        "triplets": []
+    },
+    {
+        "text": "We will conclude this review of the literature on the theory and economics of emotions by discussing and identifying the most fruitful and promising areas of research for economists (4). Finally, we will briefly conclude (5).",
+        "triplets": []
+    },
+    {
+        "text": "Finally, we will briefly conclude (5). 2. The science of emotions: expression, behavior, and social construction It is possible to juxtapose two major concepts in contemporary scientific approaches to emotion23.",
+        "triplets": []
+    },
+    {
+        "text": "2.",
+        "triplets": []
+    },
+    {
+        "text": "The science of emotions: expression, behavior, and social construction It is possible to juxtapose two major concepts in contemporary scientific approaches to emotion23. First of all, we find the authors who consider that emotions correspond to an objective empirical reality that can be defined, analyzed, evaluated and broken down. Schematically, the proponents of this first trend are located more in the life sciences, in the medical sciences or in experimental sciences such as psychology or neuroscience.",
+        "triplets": [
+            {
+                "head": "life sciences",
+                "head_type": "field of study",
+                "type": "involve",
+                "tail": "proponents",
+                "tail_type": "group"
+            },
+            {
+                "head": "medical sciences",
+                "head_type": "field of study",
+                "type": "involve",
+                "tail": "proponents",
+                "tail_type": "group"
+            },
+            {
+                "head": "experimental sciences",
+                "head_type": "field of study",
+                "type": "involve",
+                "tail": "proponents",
+                "tail_type": "group"
+            },
+            {
+                "head": "psychology",
+                "head_type": "field of study",
+                "type": "involve",
+                "tail": "proponents",
+                "tail_type": "group"
+            },
+            {
+                "head": "neuroscience",
+                "head_type": "field of study",
+                "type": "involve",
+                "tail": "proponents",
+                "tail_type": "group"
+            }
+        ]
+    },
+    {
+        "text": "Within this first trend, there are, on the one hand, those who give primacy to the bodily, physiological, biological dimension of emotion (2.1) and, on the other hand, those who, by relativizing the scope of the body, reveal the importance of cognition and psychological processes (2.2).",
+        "triplets": [
+            {
+                "head": "bodily dimension",
+                "head_type": "concept",
+                "type": "relates to",
+                "tail": "emotion",
+                "tail_type": "concept"
+            },
+            {
+                "head": "physiological dimension",
+                "head_type": "concept",
+                "type": "relates to",
+                "tail": "emotion",
+                "tail_type": "concept"
+            },
+            {
+                "head": "biological dimension",
+                "head_type": "concept",
+                "type": "relates to",
+                "tail": "emotion",
+                "tail_type": "concept"
+            },
+            {
+                "head": "cognition",
+                "head_type": "concept",
+                "type": "reveals importance of",
+                "tail": "psychological processes",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "Other authors posit, on the contrary, that emotions should be considered rather as objects on which we can formulate a discourse without claiming an operational measurement. These authors share the idea that the human mind bases its capacity for knowledge on relationships\n2. This is naturally a schematic juxtaposition that allows the question of emotion to be approached with clarity and relative simplicity, particularly for the uninitiated.",
+        "triplets": [
+            {
+                "head": "emotions",
+                "head_type": "concept",
+                "type": "can formulate discourse",
+                "tail": "human mind",
+                "tail_type": "concept"
+            },
+            {
+                "head": "human mind",
+                "head_type": "concept",
+                "type": "bases capacity for knowledge on",
+                "tail": "relationships",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "This is naturally a schematic juxtaposition that allows the question of emotion to be approached with clarity and relative simplicity, particularly for the uninitiated. However, the reader must keep in mind that the porosity, contiguity and overlapping between the work of researchersbelonging to different disciplines (neurology, sociology, social psychology, anthropology, philosophy, etc.) is much larger than what the following presentation of the theory of emotions suggests. Some works in particular are explicitly on the border between these disciplines (interweaving for example, as an illustration, neuroscience and history (see in this regard the work with the evocative title of Smail [2007])).",
+        "triplets": [
+            {
+                "head": "neuroscience",
+                "head_type": "field of study",
+                "type": "interweaves with",
+                "tail": "history",
+                "tail_type": "field of study"
+            }
+        ]
+    },
+    {
+        "text": "However, the reader must keep in mind that the porosity, contiguity and overlapping between the work of researchersbelonging to different disciplines (neurology, sociology, social psychology, anthropology, philosophy, etc.) is much larger than what the following presentation of the theory of emotions suggests. Some works in particular are explicitly on the border between these disciplines (interweaving for example, as an illustration, neuroscience and history (see in this regard the work with the evocative title of Smail [2007])).",
+        "triplets": [
+            {
+                "head": "neurology",
+                "head_type": "concept",
+                "type": "is related to",
+                "tail": "sociology",
+                "tail_type": "concept"
+            },
+            {
+                "head": "neurology",
+                "head_type": "concept",
+                "type": "is related to",
+                "tail": "social psychology",
+                "tail_type": "concept"
+            },
+            {
+                "head": "neurology",
+                "head_type": "concept",
+                "type": "is related to",
+                "tail": "anthropology",
+                "tail_type": "concept"
+            },
+            {
+                "head": "neurology",
+                "head_type": "concept",
+                "type": "is related to",
+                "tail": "philosophy",
+                "tail_type": "concept"
+            },
+            {
+                "head": "neuroscience",
+                "head_type": "concept",
+                "type": "is interwoven with",
+                "tail": "history",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "3. We refer in what follows to the references and original editions of the texts or\nworks of the authors cited.",
+        "triplets": []
+    },
+    {
+        "text": "For extensive and recent disciplinary academic reviews on the theory of emotions, the reader may consult in particular Lewis et al. [2010] and Tcherkassof",
+        "triplets": []
+    },
+    {
+        "text": "[2010] and Tcherkassof",
+        "triplets": []
+    },
+    {
+        "text": "[2008] in psychology, Panksepp [2004] in neuroscience, Stets and Turner [2014] in sociology, Goldie [2009] in philosophy, Beatty",
+        "triplets": []
+    },
+    {
+        "text": "[2014] in sociology, Goldie",
+        "triplets": []
+    },
+    {
+        "text": "[2009] in philosophy, Beatty [2019] in anthropology, Biess and Gross",
+        "triplets": []
+    },
+    {
+        "text": "[2019] in anthropology, Biess and Gross [2014] in philosophy of science, Hoggett and Thompson [2012] and Nussbaum",
+        "triplets": []
+    },
+    {
+        "text": "[2014] in philosophy of science, Hoggett and Thompson [2012] and Nussbaum [2013] in political science, Plantin [2011] in communication science.",
+        "triplets": []
+    },
+    {
+        "text": "[2012] and Nussbaum [2013] in political science, Plantin [2011] in communication science. The history of emotions has been remarkably reviewed by Corbin et al.",
+        "triplets": []
+    },
+    {
+        "text": "The history of emotions has been remarkably reviewed by Corbin et al. [2016-2017]. For an introduction in history, see also Plamper",
+        "triplets": []
+    },
+    {
+        "text": "[2016-2017].",
+        "triplets": []
+    },
+    {
+        "text": "[2015] as well as the articles by Boquet and Nagy [2011, 2016]. For a historical reading of the word “emotion”, refer to Dixon [2012].",
+        "triplets": []
+    },
+    {
+        "text": "For a historical reading of the word “emotion”, refer to Dixon [2012]. The reader will also find a summary of the place of emotion in art in Bernardet al.",
+        "triplets": []
+    },
+    {
+        "text": "[2016], in architecture, in Thibault [2010], and around the heritage question, in Fabre [2013]. On the place of emotions in the construction of scientific knowledge, refer to the very fine work of Waquet [2019].",
+        "triplets": []
+    },
+    {
+        "text": "On the place of emotions in the construction of scientific knowledge, refer to the very fine work of Waquet [2019]. Finally, for synthetic and enlightened dictionaries of the words of emotion and “social passions”, see respectively Smith",
+        "triplets": []
+    },
+    {
+        "text": "[2019] and Origgi [2019].",
+        "triplets": []
+    },
+    {
+        "text": "[2019]. Emmanuel Petit— ...",
+        "triplets": []
+    },
+    {
+        "text": "Emmanuel Petit— ... The physiological and biological dimension\nof emotion\nThe first scientific approach to the theory of emotions emphasizes\nthe physiological, biological and universal dimension of emotion.",
+        "triplets": []
+    },
+    {
+        "text": "The physiological and biological dimension\nof emotion\nThe first scientific approach to the theory of emotions emphasizes\nthe physiological, biological and universal dimension of emotion. It can be summarized by saying that emotion is located in the body and that consequently emotions can be produced, expressed and recognized by any human, regardless of their culture.",
+        "triplets": [
+            {
+                "head": "emotion",
+                "head_type": "concept",
+                "type": "is located in",
+                "tail": "body",
+                "tail_type": "place"
+            }
+        ]
+    },
+    {
+        "text": "It can be summarized by saying that emotion is located in the body and that consequently emotions can be produced, expressed and recognized by any human, regardless of their culture. An emotion such as fear, for example, would have this universal, innate, natural dimension, which is manifested by certain facial expressions (tensing) or body expressions (trembling, cold sweat, palpitations, etc.).",
+        "triplets": [
+            {
+                "head": "emotion",
+                "head_type": "concept",
+                "type": "located in",
+                "tail": "body",
+                "tail_type": "place"
+            },
+            {
+                "head": "fear",
+                "head_type": "emotion",
+                "type": "manifested by",
+                "tail": "facial expressions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "fear",
+                "head_type": "emotion",
+                "type": "manifested by",
+                "tail": "body expressions",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "For a very long time, many thinkers have sought to locate\nemotion in the body. This is the case of several Greek authors (Hippocrates, Galen), Romans, ecclesiastical theologians (Augustine, Thomas Aquinas), but also Descartes [1649], Condillac [1754], Smith",
+        "triplets": []
+    },
+    {
+        "text": "This is the case of several Greek authors (Hippocrates, Galen), Romans, ecclesiastical theologians (Augustine, Thomas Aquinas), but also Descartes [1649], Condillac [1754], Smith",
+        "triplets": []
+    },
+    {
+        "text": "[1759] or Diderot and d'Alembert [1765]. However, it is thanks to Darwin's theory of evolution [1872] that bodily theories of emotion benefit from a major boost.",
+        "triplets": [
+            {
+                "head": "Darwin",
+                "head_type": "person",
+                "type": "published",
+                "tail": "theory of evolution",
+                "tail_type": "concept"
+            },
+            {
+                "head": "theory of evolution",
+                "head_type": "concept",
+                "type": "boosted",
+                "tail": "bodily theories of emotion",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "However, it is thanks to Darwin's theory of evolution [1872] that bodily theories of emotion benefit from a major boost. In Darwin's naturalist approach [1872], emotions are conceived as current vestiges of the distant origins of the human species. They serve the organism by allowing it to react with appropriate behaviors to dangers from the environment.",
+        "triplets": [
+            {
+                "head": "Darwin's theory of evolution",
+                "head_type": "concept",
+                "type": "boosts",
+                "tail": "bodily theories of emotion",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Darwin's naturalist approach",
+                "head_type": "concept",
+                "type": "conceives",
+                "tail": "emotions as current vestiges",
+                "tail_type": "concept"
+            },
+            {
+                "head": "emotions",
+                "head_type": "concept",
+                "type": "serve",
+                "tail": "the organism",
+                "tail_type": "concept"
+            },
+            {
+                "head": "the organism",
+                "head_type": "concept",
+                "type": "reacts with",
+                "tail": "appropriate behaviors",
+                "tail_type": "concept"
+            },
+            {
+                "head": "appropriate behaviors",
+                "head_type": "concept",
+                "type": "respond to",
+                "tail": "dangers from the environment",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "In Darwin's naturalist approach [1872], emotions are conceived as current vestiges of the distant origins of the human species. They serve the organism by allowing it to react with appropriate behaviors to dangers from the environment. For example, in the case of surprise, opening the eyes and fixing the gaze would facilitate the detection and identification of unexpected events.",
+        "triplets": [
+            {
+                "head": "Darwin's naturalist approach",
+                "head_type": "concept",
+                "type": "conceived",
+                "tail": "vestiges of human species",
+                "tail_type": "concept"
+            },
+            {
+                "head": "emotions",
+                "head_type": "concept",
+                "type": "serve",
+                "tail": "organism",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "They serve the organism by allowing it to react with appropriate behaviors to dangers from the environment. For example, in the case of surprise, opening the eyes and fixing the gaze would facilitate the detection and identification of unexpected events. Emotions also have a primary function of social communication or signaling when, through the body, they reveal the intentions of living beings.",
+        "triplets": [
+            {
+                "head": "Emotions",
+                "head_type": "concept",
+                "type": "serve",
+                "tail": "organism",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Opening eyes",
+                "head_type": "event",
+                "type": "facilitate",
+                "tail": "detection",
+                "tail_type": "event"
+            },
+            {
+                "head": "Emotions",
+                "head_type": "concept",
+                "type": "reveal",
+                "tail": "intentions",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "The interest of Darwin's work [1872] is to codify on an empirical level a rigorous method of evaluating facial expressions that will be explored in more depth by psychologists and biologists a century later (Ekman and Davidson [1994], Plutchik [1984]) and then used by modern facial recognition technologies (in particular for so-called \"basic\" or \"universal\" emotions (Ekman [1999]). Darwin",
+        "triplets": [
+            {
+                "head": "Darwin's work",
+                "head_type": "concept",
+                "type": "published in",
+                "tail": "1872",
+                "tail_type": "date"
+            }
+        ]
+    },
+    {
+        "text": "[1994], Plutchik [1984]) and then used by modern facial recognition technologies (in particular for so-called \"basic\" or \"universal\" emotions (Ekman [1999]).",
+        "triplets": []
+    },
+    {
+        "text": "Darwin [1872] thus marks the starting point of the scientific study of emotion.",
+        "triplets": [
+            {
+                "head": "1872",
+                "head_type": "date",
+                "type": "is",
+                "tail": "the starting point",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "The biological vision of emotion is supported, in the 1880s, by\nwhat appears to be the first true psychological theory of emotion, known as the \"James-Lange\" theory. Darwin was interested in expressive aspects.",
+        "triplets": [
+            {
+                "head": "James-Lange theory",
+                "head_type": "concept",
+                "type": "is known as",
+                "tail": "psychological theory of emotion",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Darwin",
+                "head_type": "person",
+                "type": "was interested in",
+                "tail": "expressive aspects",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "Darwin was interested in expressive aspects. The psychologist William James, unanimously recognized as the father of American psychology, and the anatom-184—————————— Theory of emotions and economic analysis: a review\nREP 132 (2) March-April 2022mist Carl Lange, propose an analysis that is certainly in line with the English naturalist, but which provides an explanation for the psychological mechanisms underlying emotion.",
+        "triplets": [
+            {
+                "head": "Darwin",
+                "head_type": "person",
+                "type": "interested in",
+                "tail": "expressive aspects",
+                "tail_type": "concept"
+            },
+            {
+                "head": "William James",
+                "head_type": "person",
+                "type": "recognized as",
+                "tail": "father of American psychology",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "The psychologist William James, unanimously recognized as the father of American psychology, and the anatom-184—————————— Theory of emotions and economic analysis: a review\nREP 132 (2) March-April 2022mist Carl Lange, propose an analysis that is certainly in line with the English naturalist, but which provides an explanation for the psychological mechanisms underlying emotion.",
+        "triplets": [
+            {
+                "head": "William James",
+                "head_type": "person",
+                "type": "recognized as",
+                "tail": "father of American psychology",
+                "tail_type": "concept"
+            },
+            {
+                "head": "William James",
+                "head_type": "person",
+                "type": "proposed",
+                "tail": "analysis of emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Carl Lange",
+                "head_type": "person",
+                "type": "proposed",
+                "tail": "analysis of emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "English naturalist",
+                "head_type": "concept",
+                "type": "provided",
+                "tail": "explanation for psychological mechanisms",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "James-Lange's thesis is revolutionary as well as counter-intuitive. These authors put forward the idea that physiological and bodily changes, as well as the behaviors associated with them, are not the \"consequence\" of emotion (as common sense and the classical approaches of the time claim) but the \"cause\".",
+        "triplets": [
+            {
+                "head": "James-Lange",
+                "head_type": "person",
+                "type": "proposes",
+                "tail": "revolutionary thesis",
+                "tail_type": "concept"
+            },
+            {
+                "head": "classical approaches",
+                "head_type": "concept",
+                "type": "claim",
+                "tail": "emotion has consequence",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "These authors put forward the idea that physiological and bodily changes, as well as the behaviors associated with them, are not the \"consequence\" of emotion (as common sense and the classical approaches of the time claim) but the \"cause\". According to this conception, becoming aware of these physiological changes constitutes emotion in itself. For example, when we realize that we are in danger, this perception triggers a set of bodily responses and it is our awareness of these responses that constitutes fear.",
+        "triplets": [
+            {
+                "head": "Physiological changes",
+                "head_type": "concept",
+                "type": "cause",
+                "tail": "Emotion",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Bodily responses",
+                "head_type": "concept",
+                "type": "constitute",
+                "tail": "Fear",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Perception of danger",
+                "head_type": "concept",
+                "type": "triggers",
+                "tail": "Bodily responses",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Awareness of bodily responses",
+                "head_type": "concept",
+                "type": "constitutes",
+                "tail": "Emotion",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "According to this conception, becoming aware of these physiological changes constitutes emotion in itself.",
+        "triplets": [
+            {
+                "head": "becoming aware",
+                "head_type": "concept",
+                "type": "constitutes",
+                "tail": "emotion",
+                "tail_type": "concept"
+            },
+            {
+                "head": "physiological changes",
+                "head_type": "concept",
+                "type": "constitutes",
+                "tail": "emotion",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "The repression was followed by a \nmutiny by soldiers of the 17th infantry regiment in Agde.",
+        "triplets": [
+            {
+                "head": "17th infantry regiment",
+                "head_type": "organisation",
+                "type": "had",
+                "tail": "mutiny",
+                "tail_type": "event"
+            },
+            {
+                "head": "Agde",
+                "head_type": "place",
+                "type": "was location of",
+                "tail": "mutiny",
+                "tail_type": "event"
+            }
+        ]
+    },
+    {
+        "text": "In the Chamber, \nthe debates were heated and the President \nof the Council and Minister of the Interior, \nGeorges Clemenceau, was confronted with a \nchallenge coming from the conservative camp but also from his own camp (the \nradical and socialist deputies of the Midi).",
+        "triplets": [
+            {
+                "head": "Georges Clemenceau",
+                "head_type": "person",
+                "type": "was",
+                "tail": "President of the Council",
+                "tail_type": "position"
+            },
+            {
+                "head": "Georges Clemenceau",
+                "head_type": "person",
+                "type": "was",
+                "tail": "Minister of the Interior",
+                "tail_type": "position"
+            },
+            {
+                "head": "Georges Clemenceau",
+                "head_type": "person",
+                "type": "confronted with",
+                "tail": "challenge",
+                "tail_type": "event"
+            },
+            {
+                "head": "conservative camp",
+                "head_type": "organisation",
+                "type": "came from",
+                "tail": "challenge",
+                "tail_type": "event"
+            },
+            {
+                "head": "radical and socialist deputies of the Midi",
+                "head_type": "organisation",
+                "type": "came from",
+                "tail": "challenge",
+                "tail_type": "event"
+            }
+        ]
+    },
+    {
+        "text": "In this article, we use \nquantitative tools and the Official Journals of 1907 in order to document the way in which emotion \nevolves – in the debates and in the reactions of the Assembly – during this crisis.",
+        "triplets": [
+            {
+                "head": "Official Journals",
+                "head_type": "organisation",
+                "type": "used in",
+                "tail": "1907",
+                "tail_type": "date"
+            },
+            {
+                "head": "emotion",
+                "head_type": "concept",
+                "type": "evolves in",
+                "tail": "debates",
+                "tail_type": "event"
+            },
+            {
+                "head": "emotion",
+                "head_type": "concept",
+                "type": "evolves in",
+                "tail": "reactions of the Assembly",
+                "tail_type": "event"
+            }
+        ]
+    },
+    {
+        "text": "We suggest that when the theme of \nwine is addressed in the Chamber, the deputies use a more emotive rhetoric and that the audience reacts more. However, more than the theme of wine, it is \nthe social consequences of the crisis (the demonstrations, the mutiny, etc.) \nthat explain this recourse to emotion.",
+        "triplets": [
+            {
+                "head": "deputies",
+                "head_type": "person",
+                "type": "use",
+                "tail": "emotive rhetoric",
+                "tail_type": "concept"
+            },
+            {
+                "head": "audience",
+                "head_type": "person",
+                "type": "reacts to",
+                "tail": "emotive rhetoric",
+                "tail_type": "concept"
+            },
+            {
+                "head": "social consequences of the crisis",
+                "head_type": "concept",
+                "type": "explain",
+                "tail": "recourse to emotion",
+                "tail_type": "concept"
+            },
+            {
+                "head": "demonstrations",
+                "head_type": "event",
+                "type": "are part of",
+                "tail": "social consequences of the crisis",
+                "tail_type": "concept"
+            },
+            {
+                "head": "mutiny",
+                "head_type": "event",
+                "type": "is part of",
+                "tail": "social consequences of the crisis",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "1 2 3 4 5 6\nReaction Reaction Reaction Rhetoric Rhetoric Rhetoric\nWine and\nalcohol1.227*** 0.055 0.515 18.848*** 4.225 7.751***\n(0.315) (0.533) (0.442) (3.790) (4.077) (2.701)\nSocial 11.029*** 8.725*** 72.785*** 31.182*\n(2.417) (2.280) (15.723) (15.822)\nAgriculture 2.279** 1.562 62.119*** 21.167***\n(1.094) (1.033) (10.633) (7,758)\nArmy 2,298*** 3,599*** 25,210*** 14,981***\n(0.662) (0.771) (6.756) (5.060)Other research\n105\nAnnee Clemenceau-6_CC19_PC.indd 105 20/12/2022 15:51:44Security 2.542* 2.878* 46.615*** 24.472***\n(1.312) (1.499) (11.067) (7.602)\nColonies -1.026 8.903\n(1.144) (7.349)\nCommerce -2.618 -5.312\n(2.192) (13.912)\nDiplomacy -4.472* -2.782\n(2.469) (17.585)\nInfrastruc-\ntures0.751 31.039***\n(0.776) (5.504)\nReligion 2.006*** 17.544***\n(0.690) (5.327)\nHealth -2.025** 23.315***\n(0.977) (5.246)\nSchool 1.272 23.575***\n(1.070) (8.085)",
+        "triplets": []
+    },
+    {
+        "text": "Economy 1.997*** 24.788***\n(0.583) (4.290)",
+        "triplets": []
+    },
+    {
+        "text": "Labor -1.025 21.369*\n(2.132) (11.766)\nObs 122 122 122 122 122 122\nR2 0.078 0.624 0.721 0.106 0.774 0.919\nNote: The table reports the results of an OLS regression. The dependent variable \nis the number of measured reactions (columns 1 to 3) or words related to emotions \n(columns 4 to 6), the explanatory variables are the number of keywords associated \nwith certain themes.",
+        "triplets": []
+    },
+    {
+        "text": "Heteroskedasticity-robust standard errors are \nindicated in parentheses, * p < 0.1, ** p < 0.05, ***p < 0.01.L’Année Clemenceau no 6, 2022\n106\nAnnee Clemenceau-6_CC19_PC.indd 106 20/12/2022 15:51:45In column 4 of table 1, we \nobserve in particular that, on average, \nan additional keyword related to wine \nin an OJ leads to an increase of 18.85 \nwords with an emotional charge. As before, when \nwe control for other factors, the effect is reduced (increase of 7.7 words).",
+        "triplets": []
+    },
+    {
+        "text": "In column 6, it appears that \nthemes related to social issues (+ 31 words) or \nsecurity (+ 24 words) have a much greater \neffect on the use of emotional rhetoric.",
+        "triplets": [
+            {
+                "head": "social issues",
+                "head_type": "concept",
+                "type": "related to",
+                "tail": "emotional rhetoric",
+                "tail_type": "concept"
+            },
+            {
+                "head": "security",
+                "head_type": "concept",
+                "type": "related to",
+                "tail": "emotional rhetoric",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "Summary\nOur quantitative analysis reveals that \nthe fervour induced by the wine crisis \nis reflected in the debates in the Chamber \nby a significant increase in emotional occurrences. During this period, \nMPs and members of the Government were subjected to strong \nemotions that they expressed or relayed. What preoccupied \nMPs were mainly the social consequences \ninduced by the crisis at the time of the June 1907 riots.",
+        "triplets": [
+            {
+                "head": "wine crisis",
+                "head_type": "event",
+                "type": "reflected in",
+                "tail": "debates in the Chamber",
+                "tail_type": "event"
+            },
+            {
+                "head": "MPs",
+                "head_type": "person",
+                "type": "expressed",
+                "tail": "strong emotions",
+                "tail_type": "concept"
+            },
+            {
+                "head": "MPs",
+                "head_type": "person",
+                "type": "were preoccupied with",
+                "tail": "social consequences",
+                "tail_type": "concept"
+            },
+            {
+                "head": "June 1907 riots",
+                "head_type": "event",
+                "type": "induced",
+                "tail": "social consequences",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "In the \nmovement of Gabriel Tarde and especially Gustave Le Bon, this vision is associated with that of the crowd, considered dangerous. We fear imitation, even the contagion of emotion.",
+        "triplets": [
+            {
+                "head": "Gabriel Tarde",
+                "head_type": "person",
+                "type": "associated with",
+                "tail": "crowd",
+                "tail_type": "concept"
+            },
+            {
+                "head": "Gustave Le Bon",
+                "head_type": "person",
+                "type": "associated with",
+                "tail": "crowd",
+                "tail_type": "concept"
+            },
+            {
+                "head": "imitation",
+                "head_type": "concept",
+                "type": "feared",
+                "tail": "emotion",
+                "tail_type": "concept"
+            }
+        ]
+    },
+    {
+        "text": "165-179. 5. Jean Sagnes and Jean-Claude Séguéla, 1907. The Revolt of the South from A to Z, Béziers, Éditions \nAldacom, 2007; Jean Sagnes (ed.)",
+        "triplets": []
+    },
+    {
+        "text": "The Revolt of the Wine-growing South One Hundred Years Later, 1907-2007, Perpignan, Presses universitaires de Perpignan, 2008; \nAndrew W.M. Smith, James W. Hawkey, “From \nthe soil we have come, to the soil we shall go \nand from the soil we want to live’: Language, \nPolitics and Identity in the Great Revolt of \n1907”, Modern & Contemporary France, 23/3, 2015, \npp. 307-326. 6. Jean Sagnes, “Parliamentary speeches: \nThe wine crisis of 1907 before the Chamber of \nDeputies”, Parlement[s].",
+        "triplets": []
+    },
+    {
+        "text": "Revue d’histoire politique, \nno 1, 2006, p. 155. 7. “I know the South, all this will end in a \nbanquet,” he is said to have said (according to the Musée National \nClemenceau-de Lattre.",
+        "triplets": []
+    },
+    {
+        "text": "http:/ /www.vendee.gouv. fr/IMG/pdf/lse_speciale_musee_clemenceau-de_\nlattre-bd-planche.pdf, “Clemenceau “strike \nbreaker””, p. 10).",
+        "triplets": []
+    },
+    {
+        "text": "L’Année Clemenceau no 6, 2022\n112\nAnnee Clemenceau-6_CC19_PC.indd 112 20/12/2022 15:51:458. Jean Sagnes (dir.) The revolt of the wine-growing South \none hundred years later, op.",
+        "triplets": []
+    },
+    {
+        "text": "cit.\n9. At the end of the day, 327 deputies (against 223) maintained their confidence in the Government.",
+        "triplets": []
+    },
+    {
+        "text": "10.",
+        "triplets": []
+    },
+    {
+        "text": "Ibid., p. 243.\n26. Sylvie Brodziak, “From the Commune to the Armenian Massacres. Perception and Writing of Violence in the Literary Work of Georges Clemenceau,” Études arméniennes contemporaines, no. 8, 2016, p. 7-24.\n27.",
+        "triplets": []
+    },
+    {
+        "text": "Jean Martet, Le silence de M. Clemenceau, Paris, Albin Michel, 1929, p. 296-297.\n28. Jean Noël Jeanneney, Clemenceau.",
+        "triplets": []
+    },
+    {
+        "text": "Portrait \nof a Free Man, Paris, Éditions Mengès, 2005; \nSylvie Brodziak and Samuël Tomei, Dictionary \nClemenceau, Paris, Robert Laffont, “Bouquins”, \n2017.\n29. Jean Sagnes and Jean-Claude Séguéla, 1907. The Revolt of the South from A to Z, op.",
+        "triplets": []
+    },
+    {
+        "text": "cit., p. 270.L’Année Clemenceau no. 6, 2022\n114\nAnnee Clemenceau-6_CC19_PC.indd 114 20/12/2022 15:51:45",
+        "triplets": []
+    },
+    {
+        "text": "5. THE CONTRIBUTION OF JOHN DEWEY'S THEORY OF EMOTIONS TO DOUGLASS NORTH'S\nNEW INSTITUTIONAL ECONOMY\n\nJérôme Ballet, Emmanuel Petit\nHermann | « Cahiers d'économie politique »\n2023/1 n° 82 | pages 169 to 192\nISSN 0154-8344\nISBN 9791037022578\nDOI 10.3917/cep1.082.0169\nArticle available online at:\n--------------------------------------------------------------------------------------------------------------------\nhttps://www.cairn.info/revue-cahiers-d-economie-politique-2023-1-page-169.htm\n----------------------------------------------------------------------------------------------------------------------\n\nElectronic distribution Cairn.info for Hermann.",
+        "triplets": [
+        ]
+    },
+    {
+        "text": "© Hermann. All rights reserved for all countries.",
+        "triplets": [
+        ]
+    }
+]

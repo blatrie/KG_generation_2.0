@@ -1,0 +1,11 @@
+my_env/
+src/pipeline/__pycache__
+.DS_Store
+pipeline/__pycache__
+src/models/
+src/finetuning/models/
+src/finetuning/results/
+src/evaluation/my_pdfs
+src/evaluation/finetuning_usable_text.pth
+src/finetuning/__pycache__
+models/*
