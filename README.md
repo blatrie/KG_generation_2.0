@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project aims to generate a knowledge graph from PDF files by extracting text and identifying relations within the text. The generated knowledge graph can be visualized through a Streamlit-based frontend application. This project is an enhancement of work carried out in 2023-2024, available at the following link: [KG-generation Repository](https://github.com/daJster/KG-generation/).
+This project aims to generate a knowledge graph from PDF files by extracting text and identifying relations within the text. The generated knowledge graph can be visualized through a Streamlit-based frontend application. This project is an enhancement of work carried out in 2023-2024, available at the following link: [KG-generation Repository](https://github.com/blatrie/KG_generation_2.0).
 
 ## Table of Contents
 
@@ -23,8 +23,8 @@ The knowledge graph generation process involves extracting text from PDF files, 
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/daJster/KG-generation.git
-cd KG-generation
+git clone https://github.com/blatrie/KG_generation_2.0.git
+cd KG-generation_2.0
 ```
 
 ## Software Requirements
